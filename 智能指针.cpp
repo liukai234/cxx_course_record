@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-03-13 15:09:46
- * @LastEditTime: 2020-03-14 11:44:35
+ * @LastEditTime: 2020-03-19 17:50:57
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /exception_ptr/3.cpp
@@ -19,7 +19,7 @@ class test{
     static int a;
 };
 
-int test::a = 5; // 静态成员
+int test::a = 5; // 静态成员的定义方法
 
 int main() {
     /* int *p = new int(5);

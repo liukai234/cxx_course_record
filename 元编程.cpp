@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-03-03 15:19:07
- * @LastEditTime: 2020-03-03 15:42:47
+ * @LastEditTime: 2020-03-19 17:47:34
  * @LastEditors: Please set LastEditors
  * @Description: 元编程
  * @FilePath: /wanmen3/2.cpp
@@ -11,6 +11,7 @@
 // 那么这个函数称为元函数
 
 #include <iostream>
+#include <map>
 #include <string>
 using namespace std;
 /* template <typename T>
@@ -30,15 +31,25 @@ void algo(Container &C) {
     Vector<Element_type<Container>> vec;
 }
 
-template <typename Key, typename Value>
+/* template <typename Key, typename Value>
 class Map {
     // ...
-};
+}; */
+
 
 // 使用using定义新的模板
 template <typename Value>
-using String_map = Map<string, Value>;
+using String_map = map<string, Value>;
 
-String_map<int> m;
+int main() {
+    
+    String_map<int> m;
+    m.insert(std::make_pair("1", 1));
+    m.insert(std::make_pair("2", 2));
 
-int main() { return 0; }
+    for (auto x : m) {
+        std::cout << "m.first: " << x.first << "  m.second: " << x.second
+                  << std::endl;
+    }
+    return 0;
+}

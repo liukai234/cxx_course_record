@@ -1,39 +1,34 @@
 /*
  * @Author: liukai
  * @Date: 2020-02-22 13:37:31
- * @LastEditTime: 2020-02-23 10:17:37
+ * @LastEditTime: 2020-03-19 18:02:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /wanmen2/mytest.cpp
  */
+
 #include <iostream>
 using namespace std;
 
-class Add{
-private:
-    int num1;
-    int num2;
-public:
-    explicit Add(const int& a,const int& b) : num1(a), num2(b){ // explicit 显性的
-    }
-    int returnAdd() {
-        return num1 + num2;
-    }
-    ~Add(){
-        cout << "~Add" << endl;
-    }
+class Add {
+   public:
+    // explicit 显性的
+    explicit Add(const int& a) : num(a) {}
+    int Num() { return num; }
+    ~Add() {}
+
+   private:
+    int num;
 };
 
-/**
- * @description: 
- * @param {type} 
- * @return: 
- */
-int main(int args, char *argv[]) {
-    int Inta = 1;
-    int Intb = 2;
+int main(int args, char* argv[]) {
+    // 意义:
+    // 如果没有explicit的话就相当于 Add temp(5); Add obj = temp; 先创建临时对象, 然后进行赋值
+    // 如果有explicit就不允许发生这种先创建后赋值的现象, 
+    // Add add = 5; // wrong
+    Add add(5); 
 
-    Add add(Inta, Intb);
-    cout << add.returnAdd() << endl;
+    cout << add.Num() << endl;
+
     return 0;
-} 
+}
