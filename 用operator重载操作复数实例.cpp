@@ -10,6 +10,17 @@
 #include <iostream>
 using namespace std;
 
+// 重载运算符() [] -> 或赋值运算符 = 时,
+// 运算符重载函数必须声明为类的成员函数
+
+// - 的优先级高于 +=
+// 运算符优先级
+// C: https://www.cnblogs.com/panda1024/p/5497649.html
+// C++: https://www.luogu.com.cn/blog/xukuan/cplusplus-operator-precedence
+
+// 如果运算符重载为友元函数 a + b 为 operator+(a, b)
+// 如果运算符定义为成员函数 a + b 为 a.operator+(b)
+
 class complex {
    public:
     complex(double r, double i) : re{r}, im{i} {}
