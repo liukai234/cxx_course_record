@@ -3,7 +3,7 @@
  * @Date: 2020-03-26 09:37:54
  * @LastEditTime: 2020-03-27 09:44:30
  * @LastEditors: Please set LastEditors
- * @Description: 
+ * @Description: 多继承中的二义性问题解决
  * @FilePath: /test/test.cpp
  */
 #include <iostream>
