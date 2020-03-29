@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-02-25 22:15:23
- * @LastEditTime: 2020-02-25 22:40:29
+ * @LastEditTime: 2020-03-29 14:51:55
  * @LastEditors: Please set LastEditors
  * @Description: complex
  * @FilePath: /newclass/complex.cpp
@@ -67,6 +67,7 @@ class complex {
     double im;
 };
 
+// [注: 来自熊风光老师] 这里 operator 不能重载, 因为 + 重载了 += , 引用的话会改变 a 的值, 把 b 加到 a 上
 complex operator+(complex a, complex b) { return a += b; }
 complex operator-(complex a, complex b) { return a -= b; }
 complex operator-(complex a) { return {-a.real(), -a.imag()}; }
@@ -75,6 +76,7 @@ complex operator/(complex a, complex b) { return a /= b; }
 
 ostream &operator<<(ostream &output, complex &c) {
     output << "(" << c.re << " + " << c.im << "i)";
+    return output;
 }
 
 istream &operator>>(istream &input, complex &c) {
