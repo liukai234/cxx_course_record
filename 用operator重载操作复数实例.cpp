@@ -102,7 +102,7 @@ void test_driver() {
 
 int main() {
     int a, b;
-    a = 5, b = 6;  // 这种操作在C++中没得问题
+    a = 5, b = 6;  // 这种操作在C++中没得问题, 欸, 在C中也没问题, 上次大概看错了
 
     test_driver();
     return 0;
