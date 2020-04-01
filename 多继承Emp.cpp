@@ -1,9 +1,9 @@
 /*
  * @Author: your name
  * @Date: 2020-03-26 09:37:54
- * @LastEditTime: 2020-03-27 09:44:30
+ * @LastEditTime: 2020-04-01 10:58:14
  * @LastEditors: Please set LastEditors
- * @Description: ¶à¼Ì³ĞÖĞµÄ¶şÒåĞÔÎÊÌâ½â¾ö
+ * @Description: å¤šç»§æ‰¿ä¸­çš„äºŒä¹‰æ€§é—®é¢˜è§£å†³
  * @FilePath: /test/test.cpp
  */
 #include <iostream>
@@ -22,7 +22,7 @@ class Teacher {
     string sex;
     string addr;
     string number;
-    string title;  // Ö°³Æ
+    string title;  // èŒç§°
 };
 Teacher::Teacher(string nam, int a, string s, string add, string n, string t)
     : name{nam}, age{a}, sex{s}, addr{add}, number{n}, title{t} {}
@@ -46,7 +46,7 @@ class Cadre {
     string sex;
     string addr;
     string number;
-    string post;  // Ö°Îñ
+    string post;  // èŒåŠ¡
 };
 Cadre::Cadre(string nam, int a, string s, string add, string n, string t)
     : name{nam}, age{a}, sex{s}, addr{add}, number{n}, post{t} {}

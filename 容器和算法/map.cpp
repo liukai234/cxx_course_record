@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-03-10 18:10:25
- * @LastEditTime: 2020-03-11 15:11:45
+ * @LastEditTime: 2020-04-01 11:07:33
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edits
  * @FilePath: /wanmen_container/map.cpp
@@ -12,10 +12,10 @@
 #include <iostream>
 
 using namespace std;
-// Èç¹ûÒªÅÅĞòÊ¹ÓÃmap, Èç¹û²»ÅÅĞòµÄ»°unorderedÊÇ¸üºÃµÄÑ¡Ôñ
+// å¦‚æœè¦æ’åºä½¿ç”¨map, å¦‚æœä¸æ’åºçš„è¯unorderedæ˜¯æ›´å¥½çš„é€‰æ‹©
 int main(){
-    unordered_map<string, int> mapWorld;// test unordered_map // ÒÀÀµ¿âunordered_map
-    // °´ÕÕÊ÷µÄ±ê×¼À´²åÈë Êä³öÊ±ÊÇÏÈĞò±éÀú(×ó - ÖĞ - ÓÒ)
+    unordered_map<string, int> mapWorld;// test unordered_map // ä¾èµ–åº“unordered_map
+    // æŒ‰ç…§æ ‘çš„æ ‡å‡†æ¥æ’å…¥ è¾“å‡ºæ—¶æ˜¯å…ˆåºéå†(å·¦ - ä¸­ - å³)
     mapWorld.insert(make_pair("earth", 0));
     mapWorld.insert(make_pair("water", 1));
 

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-02-28 14:07:20
- * @LastEditTime: 2020-03-04 00:23:52
+ * @LastEditTime: 2020-04-01 11:00:34
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /exam/test.cpp
@@ -21,16 +21,16 @@ int main() {
     int n = 5;
     int origin_arr[n] = {1, 2, 3, 4, 5};
 
-    // Êä³öµ¥¸öÔªËØµÄ¼¯ºÏ
+    // è¾“å‡ºå•ä¸ªå…ƒç´ çš„é›†åˆ
     for (int i = 0; i < n; i++) {
         cout << origin_arr[i] << " ";
     }
 
-    // ³õÊ¼»¯±äÁ¿ºÍÊı×é: queueÊı×éµÄ¹¦ÄÜÏàµ±ÓÚ¶ÓÁĞ, ÄÜ¹»±£´æÇ°Ò»´ÎµÄÅÅÁĞ½á¹û
-    int front = -1;  // ²é¿´¶ÓÊ×
-    int push = 0;    // ¼ÓÈë¶ÓÁĞ
+    // åˆå§‹åŒ–å˜é‡å’Œæ•°ç»„: queueæ•°ç»„çš„åŠŸèƒ½ç›¸å½“äºé˜Ÿåˆ—, èƒ½å¤Ÿä¿å­˜å‰ä¸€æ¬¡çš„æ’åˆ—ç»“æœ
+    int front = -1;  // æŸ¥çœ‹é˜Ÿé¦–
+    int push = 0;    // åŠ å…¥é˜Ÿåˆ—
     for (int i = 0; i < n; i++) {
-        queue[0][i] = origin_arr[i];  // ³õÊ¼»¯¶ÓÊ×
+        queue[0][i] = origin_arr[i];  // åˆå§‹åŒ–é˜Ÿé¦–
     }
 
     for (int i = 2; i <= n; ++i) {
@@ -39,15 +39,15 @@ int main() {
             front++;
             for (int k = i; k >= 1; k--) {
                 push++;
-                int iter = 0; // ±éÀúÆ÷
+                int iter = 0; // éå†å™¨
 
-                // per±íÊ¾µ±Ç°²åÈëÔªËØµÄÇ°×º, suf±íÊ¾ºó×º
+                // perè¡¨ç¤ºå½“å‰æ’å…¥å…ƒç´ çš„å‰ç¼€, sufè¡¨ç¤ºåç¼€
                 for (int pre = 0; pre < k - 1; pre++) {
                     queue[push][iter++] = queue[front][pre];
                     cout << queue[front][pre];
                 }
 
-                // ¼ÓÈëµ±Ç°ÔªËØ
+                // åŠ å…¥å½“å‰å…ƒç´ 
                 queue[push][iter++] = origin_arr[i - 1];
                 cout << origin_arr[i - 1];
                 

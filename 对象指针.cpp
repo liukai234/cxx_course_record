@@ -1,23 +1,23 @@
 /*
  * @Author: your name
  * @Date: 2020-03-19 17:26:27
- * @LastEditTime: 2020-03-19 17:26:28
- * @LastEditors: your name
+ * @LastEditTime: 2020-04-01 10:57:34
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
- * @FilePath: /C++¿Î³ÌÑ§Ï°¼ÇÂ¼/¶ÔÏóÖ¸Õë.cpp
+ * @FilePath: /C++è¯¾ç¨‹å­¦ä¹ è®°å½•/å¯¹è±¡æŒ‡é’ˆ.cpp
  */
 #include <iostream>
 using namespace std;
 
-class Time; // ¶ÔÀàµÄÌáÇ°ÉùÃ÷ÒıÓÃ
-// ÓÑÔªº¯ÊıºÍÓÑÔªÀà
+class Time; // å¯¹ç±»çš„æå‰å£°æ˜å¼•ç”¨
+// å‹å…ƒå‡½æ•°å’Œå‹å…ƒç±»
 class Time{
    public:
     Time(int, int, int);
     int hour;
     int minute;
     int sec;
-    void get_time() const; // ³£³ÉÔ±º¯Êı
+    void get_time() const; // å¸¸æˆå‘˜å‡½æ•°
     
 };
 
@@ -33,20 +33,20 @@ void Time::get_time() const{
 
 int main() {
 /*
-    aÊÇÒ»¸ö¶ÔÏóÖ¸Õë, ²¢Ã»ÓĞÎªÆä¿ª±Ù¿Õ¼ä
+    aæ˜¯ä¸€ä¸ªå¯¹è±¡æŒ‡é’ˆ, å¹¶æ²¡æœ‰ä¸ºå…¶å¼€è¾Ÿç©ºé—´
     A *a;
     a->Hello();
 */
-    // Ö¸Ïò¶ÔÏóµÄ³£Ö¸Õë
-    Time t1(10, 13, 56); // ³£¶ÔÏó, ÆÕÍ¨³ÉÔ±º¯Êı²»ÄÜĞŞ¸Ä¶ÔÏóÖĞÊı¾İ³ÉÔ±µÄÖµ
+    // æŒ‡å‘å¯¹è±¡çš„å¸¸æŒ‡é’ˆ
+    Time t1(10, 13, 56); // å¸¸å¯¹è±¡, æ™®é€šæˆå‘˜å‡½æ•°ä¸èƒ½ä¿®æ”¹å¯¹è±¡ä¸­æ•°æ®æˆå‘˜çš„å€¼
     int *p1 = &t1.hour;
     cout << *p1 << endl;
     t1.get_time();
     Time *p2 = &t1;
     p2->get_time();
-    void(Time::*p3)(); // ¶¨ÒåÖ¸ÏòTimeÀàµÄ¹«ÓÃ³ÉÔ±º¯ÊıµÄÖ¸Õë±äÁ¿
-    p3 = &Time::get_time; // Ê¹p3Ö¸ÏòTimeÀà¹²ÓÃ³ÉÔ±º¯Êıget_time
-    // void(Time::*p3)() = &Time::get_time; ¶¨ÒåÊ±Í¬Ê±Ö¸¶¨ÆäÖ¸Ïò
+    void(Time::*p3)(); // å®šä¹‰æŒ‡å‘Timeç±»çš„å…¬ç”¨æˆå‘˜å‡½æ•°çš„æŒ‡é’ˆå˜é‡
+    p3 = &Time::get_time; // ä½¿p3æŒ‡å‘Timeç±»å…±ç”¨æˆå‘˜å‡½æ•°get_time
+    // void(Time::*p3)() = &Time::get_time; å®šä¹‰æ—¶åŒæ—¶æŒ‡å®šå…¶æŒ‡å‘
     (t1.*p3)();
     return 0;
 }

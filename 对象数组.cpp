@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-03-19 17:58:39
- * @LastEditTime: 2020-03-19 20:54:50
+ * @LastEditTime: 2020-04-01 10:56:31
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /test/test.cpp
@@ -13,7 +13,7 @@ using namespace std;
 
 class Test {
    public:
-   // Ò»µ©ÓĞÁËÆäËûµÄ¹¹Ôìº¯ÊıÔòÄ¬ÈÏµÄ¹¹Ôìº¯Êı¾ÍÊ§Ğ§ÁË!!!
+   // ä¸€æ—¦æœ‰äº†å…¶ä»–çš„æ„é€ å‡½æ•°åˆ™é»˜è®¤çš„æ„é€ å‡½æ•°å°±å¤±æ•ˆäº†!!!
     // Test(){}
     Test(int a) {}
     Test(int a, int b) {}
@@ -24,13 +24,13 @@ int main() {
     delete test1;
     Test t1(1), t2(2);
     
-    // ÎŞ²ÎµÄ
-    // test1 = new Test[2]; // wrong ÓĞÆäËû¹¹Ôìº¯Êı, Ä¬ÈÏ¹¹Ôìº¯ÊıÊ§Ğ§, ±ØĞëÊÖ¶¯ÖØĞ´Ä¬ÈÏ¹¹Ôìº¯Êı
+    // æ— å‚çš„
+    // test1 = new Test[2]; // wrong æœ‰å…¶ä»–æ„é€ å‡½æ•°, é»˜è®¤æ„é€ å‡½æ•°å¤±æ•ˆ, å¿…é¡»æ‰‹åŠ¨é‡å†™é»˜è®¤æ„é€ å‡½æ•°
 
     delete[] test1;
-    Test test2[2] = {Test(1,2), Test(2, 3) }; // 2¸ö²ÎÊıµÄ
+    Test test2[2] = {Test(1,2), Test(2, 3) }; // 2ä¸ªå‚æ•°çš„
     test1 = test2;
-    Test* test[3] = {new Test(1), new Test(2), new Test(3) }; // 2¸ö²ÎÊıµÄ
+    Test* test[3] = {new Test(1), new Test(2), new Test(3) }; // 2ä¸ªå‚æ•°çš„
     delete test[0];
     delete test[1];
     delete test[2];

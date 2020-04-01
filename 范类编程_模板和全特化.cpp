@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-03-02 16:46:49
- * @LastEditTime: 2020-03-02 22:43:13
+ * @LastEditTime: 2020-04-01 10:55:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /wanmen3/test.cpp
@@ -12,27 +12,27 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-// Ä£°åÀà
+// æ¨¡æ¿ç±»
 template <typename T>
 class Vector {
    public:
     Vector(int size_param) { cout << "<int>\n"; }
 };
 
-// È«ÌØÀà
+// å…¨ç‰¹ç±»
 template <>
 class Vector<float> {
    public:
     Vector(float size_param) { cout << "<float>\n"; }
 };
 
-// Ä£°åº¯Êı
-template <typename T>  // Ã¿Ò»¸öº¯Êı»òÀàÇ°¶¼ĞèÒªtemplate
+// æ¨¡æ¿å‡½æ•°
+template <typename T>  // æ¯ä¸€ä¸ªå‡½æ•°æˆ–ç±»å‰éƒ½éœ€è¦template
 const T &Max(const T &a, const T &b) {
     return a > b ? a : b;
 }
 
-// º¯ÊıÈ«ÌØ»¯
+// å‡½æ•°å…¨ç‰¹åŒ–
 template <>
 const int &Max(const int &a, const int &b) {
     cout << "int \n";

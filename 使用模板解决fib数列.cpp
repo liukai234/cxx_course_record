@@ -1,9 +1,9 @@
 /*
  * @Author: your name
  * @Date: 2020-03-03 16:51:24
- * @LastEditTime: 2020-03-03 19:58:23
+ * @LastEditTime: 2020-04-01 11:01:04
  * @LastEditors: Please set LastEditors
- * @Description: fibģ��ݹ�
+ * @Description: fib模板递归
  * @FilePath: /wanmen3/fib.cpp
  */
 

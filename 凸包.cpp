@@ -14,15 +14,15 @@ struct Point {
 };
 inline bool Compx(const Point &p1, const Point &p2) { return p1.x < p2.x; }
 /*
-        º¯Êı£ºÇóµãpÔÚÒÔp1ºÍp2¾ö¶¨Ö±ÏßµÄÉÏ²à»¹ÊÇÏÂ²à
-        ·µ»ØÖµ£ºÉÏ²à£º>0    ÏÂ²à£º<0    ÔÚÖ±ÏßÉÏ£º=0
+        å‡½æ•°ï¼šæ±‚ç‚¹påœ¨ä»¥p1å’Œp2å†³å®šç›´çº¿çš„ä¸Šä¾§è¿˜æ˜¯ä¸‹ä¾§
+        è¿”å›å€¼ï¼šä¸Šä¾§ï¼š>0    ä¸‹ä¾§ï¼š<0    åœ¨ç›´çº¿ä¸Šï¼š=0
 */
 inline double Line(const Point &p1, const Point &p2, const Point &p) {
     return (p1.y - p2.y) * p.x + (p2.x - p1.x) * p.y +
            (p1.x * p2.y - p1.y * p2.x);
 }
 /*
-        º¯Êı£ºÇóµãpµ½ÒÔp1ºÍp2¾ö¶¨Ö±ÏßµÄ¾àÀë
+        å‡½æ•°ï¼šæ±‚ç‚¹påˆ°ä»¥p1å’Œp2å†³å®šç›´çº¿çš„è·ç¦»
 */
 double Dist(const Point &p1, const Point &p2, const Point &p) {
     double A = p1.y - p2.y;
@@ -31,8 +31,8 @@ double Dist(const Point &p1, const Point &p2, const Point &p) {
     return abs(A * p.x + B * p.y + C) / sqrt(A * A + B * B);
 }
 /*
-        º¯Êı£ºÇó½âÖ±Ïßp1p2ÉÏµã¼¯µÄÉÏ°ü
-        ²ÎÊı£ºv£ºÖ±Ïßp1p2ÉÏµÄµã¼¯ vo£ºÉÏ°üµã¼¯
+        å‡½æ•°ï¼šæ±‚è§£ç›´çº¿p1p2ä¸Šç‚¹é›†çš„ä¸ŠåŒ…
+        å‚æ•°ï¼švï¼šç›´çº¿p1p2ä¸Šçš„ç‚¹é›† voï¼šä¸ŠåŒ…ç‚¹é›†
 */
 void UpHull(const vector<Point> &v, vector<Point> &vo, const Point &p1,
             const Point &p2) {
@@ -44,7 +44,7 @@ void UpHull(const vector<Point> &v, vector<Point> &vo, const Point &p1,
 
     double d = 0;
     int k;
-    // Çó×î´ó¾àÀëµÄµã
+    // æ±‚æœ€å¤§è·ç¦»çš„ç‚¹
     for (int i = 0; i < v.size(); ++i) {
         double t = Dist(p1, p2, v[i]);
         if (t > d) {
@@ -52,14 +52,14 @@ void UpHull(const vector<Point> &v, vector<Point> &vo, const Point &p1,
             k = i;
         }
     }
-    // ½«×î´ó¾àÀëµÄµã¼ÓÈëvoÖĞ
+    // å°†æœ€å¤§è·ç¦»çš„ç‚¹åŠ å…¥voä¸­
     vo.push_back(v[k]);
 
     vector<Point> vl;
     vector<Point> vr;
 
-    // ·Ö±ğÇóp1v[k]ºÍp2v[k]
-    // ×ó²àºÍÓÒ²à
+    // åˆ†åˆ«æ±‚p1v[k]å’Œp2v[k]
+    // å·¦ä¾§å’Œå³ä¾§
     for (int i = 0; i < v.size(); ++i) {
         if (Line(p1, v[k], v[i]) > 0)
             vl.push_back(v[i]);
@@ -71,8 +71,8 @@ void UpHull(const vector<Point> &v, vector<Point> &vo, const Point &p1,
     UpHull(vr, vo, v[k], p2);
 }
 /*
-        º¯Êı£ºÇó½âÖ±Ïßp1p2ÏÂµã¼¯µÄÏÂ°ü
-        ²ÎÊı£ºv£ºÖ±Ïßp1p2ÏÂµÄµã¼¯ vo£ºÏÂ°üµã¼¯
+        å‡½æ•°ï¼šæ±‚è§£ç›´çº¿p1p2ä¸‹ç‚¹é›†çš„ä¸‹åŒ…
+        å‚æ•°ï¼švï¼šç›´çº¿p1p2ä¸‹çš„ç‚¹é›† voï¼šä¸‹åŒ…ç‚¹é›†
 */
 void DownHull(const vector<Point> &v, vector<Point> &vo, const Point &p1,
               const Point &p2) {
@@ -95,7 +95,7 @@ void DownHull(const vector<Point> &v, vector<Point> &vo, const Point &p1,
     vector<Point> vl;
     vector<Point> vr;
     for (int i = 0; i < v.size(); ++i) {
-        // p1 p2 Á¬ÏßµÄÏÂ²à
+        // p1 p2 è¿çº¿çš„ä¸‹ä¾§
         if (Line(p1, v[k], v[i]) < 0)
             vl.push_back(v[i]);
         else if (Line(v[k], p2, v[i]) < 0)
@@ -106,20 +106,20 @@ void DownHull(const vector<Point> &v, vector<Point> &vo, const Point &p1,
     DownHull(vr, vo, v[k], p2);
 }
 /*
-        º¯Êı£ºÇó½âµã¼¯vµÄÍ¹°ü
+        å‡½æ•°ï¼šæ±‚è§£ç‚¹é›†vçš„å‡¸åŒ…
 */
 void ConvexHull(vector<Point> &v, vector<Point> &vo) {
-    sort(v.begin(), v.end(), Compx);  // ´ÓĞ¡µ½´óÅÅĞò
-    vo.push_back(v[0]);               // µÚÒ»µã
-    vo.push_back(v[v.size() - 1]);    // ×îºóÒ»µã
+    sort(v.begin(), v.end(), Compx);  // ä»å°åˆ°å¤§æ’åº
+    vo.push_back(v[0]);               // ç¬¬ä¸€ç‚¹
+    vo.push_back(v[v.size() - 1]);    // æœ€åä¸€ç‚¹
     vector<Point> vu;
     vector<Point> vd;
     for (int i = 1; i < v.size() - 1; ++i) {
         if (Line(v[0], v[v.size() - 1], v[i]) >
-            0)  // Çóµãv[i]ÔÚÒÔv[0] v[v.size() - 1]×é³ÉÖ±ÏßÄÄ²à
-            vu.push_back(v[i]);  // ÔÚÉÏ²à v up ²åÈë
+            0)  // æ±‚ç‚¹v[i]åœ¨ä»¥v[0] v[v.size() - 1]ç»„æˆç›´çº¿å“ªä¾§
+            vu.push_back(v[i]);  // åœ¨ä¸Šä¾§ v up æ’å…¥
         else if (Line(v[0], v[v.size() - 1], v[i]) < 0)
-            vd.push_back(v[i]);  // ÔÚÏÂ²à v down ²åÈë
+            vd.push_back(v[i]);  // åœ¨ä¸‹ä¾§ v down æ’å…¥
     }
     UpHull(vu, vo, v[0], v[v.size() - 1]);
     DownHull(vd, vo, v[0], v[v.size() - 1]);

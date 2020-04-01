@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-02-25 22:15:23
- * @LastEditTime: 2020-03-29 14:51:55
+ * @LastEditTime: 2020-04-01 11:02:10
  * @LastEditors: Please set LastEditors
  * @Description: complex
  * @FilePath: /newclass/complex.cpp
@@ -10,16 +10,16 @@
 #include <iostream>
 using namespace std;
 
-// ÖØÔØÔËËã·û() [] -> »ò¸³ÖµÔËËã·û = Ê±,
-// ÔËËã·ûÖØÔØº¯Êı±ØĞëÉùÃ÷ÎªÀàµÄ³ÉÔ±º¯Êı
+// é‡è½½è¿ç®—ç¬¦() [] -> æˆ–èµ‹å€¼è¿ç®—ç¬¦ = æ—¶,
+// è¿ç®—ç¬¦é‡è½½å‡½æ•°å¿…é¡»å£°æ˜ä¸ºç±»çš„æˆå‘˜å‡½æ•°
 
-// - µÄÓÅÏÈ¼¶¸ßÓÚ +=
-// ÔËËã·ûÓÅÏÈ¼¶
+// - çš„ä¼˜å…ˆçº§é«˜äº +=
+// è¿ç®—ç¬¦ä¼˜å…ˆçº§
 // C: https://www.cnblogs.com/panda1024/p/5497649.html
 // C++: https://www.luogu.com.cn/blog/xukuan/cplusplus-operator-precedence
 
-// Èç¹ûÔËËã·ûÖØÔØÎªÓÑÔªº¯Êı a + b Îª operator+(a, b)
-// Èç¹ûÔËËã·û¶¨ÒåÎª³ÉÔ±º¯Êı a + b Îª a.operator+(b)
+// å¦‚æœè¿ç®—ç¬¦é‡è½½ä¸ºå‹å…ƒå‡½æ•° a + b ä¸º operator+(a, b)
+// å¦‚æœè¿ç®—ç¬¦å®šä¹‰ä¸ºæˆå‘˜å‡½æ•° a + b ä¸º a.operator+(b)
 
 class complex {
    public:
@@ -29,8 +29,8 @@ class complex {
 
     double real() const { return re; }
     double real(double d) { re = d; }
-    // const¹Ø¼ü×Ö·ÅÓÚº¯ÊıºóÃæ£¬±íÊ¾¸Ãº¯ÊıÊÇÒ»¸ö³£³ÉÔ±º¯Êı£¬ÔÚ¸Ãº¯ÊıÄÚ²»ÄÜĞŞ¸Ä¸ÃÀàµÄ³ÉÔ±±äÁ¿
-    // const¹Ø¼ü×Ö·ÅÓÚº¯ÊıÇ°Ãæ£¬±íÊ¾¸Ãº¯ÊıµÄ·µ»ØÖµÎª³£Á¿£¬²»¿ÉÒÔĞŞ¸Ä
+    // constå…³é”®å­—æ”¾äºå‡½æ•°åé¢ï¼Œè¡¨ç¤ºè¯¥å‡½æ•°æ˜¯ä¸€ä¸ªå¸¸æˆå‘˜å‡½æ•°ï¼Œåœ¨è¯¥å‡½æ•°å†…ä¸èƒ½ä¿®æ”¹è¯¥ç±»çš„æˆå‘˜å˜é‡
+    // constå…³é”®å­—æ”¾äºå‡½æ•°å‰é¢ï¼Œè¡¨ç¤ºè¯¥å‡½æ•°çš„è¿”å›å€¼ä¸ºå¸¸é‡ï¼Œä¸å¯ä»¥ä¿®æ”¹
     double imag() const { return im; }
     double imag(double d) { im = d; }
 
@@ -58,7 +58,7 @@ class complex {
         return *this;
     }
 
-    //ÎªÁË·ÃÎÊË½ÓĞ³ÉÔ±, ±ØĞëÒÔÓÑÔªº¯ÊıÖØÔØ
+    //ä¸ºäº†è®¿é—®ç§æœ‰æˆå‘˜, å¿…é¡»ä»¥å‹å…ƒå‡½æ•°é‡è½½
     friend ostream &operator<<(ostream &, complex &);
     friend istream &operator>>(istream &, complex &);
 
@@ -67,7 +67,7 @@ class complex {
     double im;
 };
 
-// [×¢: À´×ÔĞÜ·ç¹âÀÏÊ¦] ÕâÀï operator ²»ÄÜÖØÔØ, ÒòÎª + ÖØÔØÁË += , ÒıÓÃµÄ»°»á¸Ä±ä a µÄÖµ, °Ñ b ¼Óµ½ a ÉÏ
+// [æ³¨: æ¥è‡ªç†Šé£å…‰è€å¸ˆ] è¿™é‡Œ operator ä¸èƒ½é‡è½½, å› ä¸º + é‡è½½äº† += , å¼•ç”¨çš„è¯ä¼šæ”¹å˜ a çš„å€¼, æŠŠ b åŠ åˆ° a ä¸Š
 complex operator+(complex a, complex b) { return a += b; }
 complex operator-(complex a, complex b) { return a -= b; }
 complex operator-(complex a) { return {-a.real(), -a.imag()}; }
@@ -92,7 +92,7 @@ void test_driver() {
     cout << " - " << a << " = " << c << endl;
     c = a + b;
     cout << a << " + " << b << " = " << c
-         << endl;  // ÖØÔØÎªoperator<<(cout, c);
+         << endl;  // é‡è½½ä¸ºoperator<<(cout, c);
     c = a - b;
     cout << a << " - " << b << " = " << c << endl;
     c = a * b;
@@ -104,7 +104,7 @@ void test_driver() {
 
 int main() {
     int a, b;
-    a = 5, b = 6;  // ÕâÖÖ²Ù×÷ÔÚC++ÖĞÃ»µÃÎÊÌâ, šG, ÔÚCÖĞÒ²Ã»ÎÊÌâ, ÉÏ´Î´ó¸Å¿´´íÁË
+    a = 5, b = 6;  // è¿™ç§æ“ä½œåœ¨C++ä¸­æ²¡å¾—é—®é¢˜, æ¬¸, åœ¨Cä¸­ä¹Ÿæ²¡é—®é¢˜, ä¸Šæ¬¡å¤§æ¦‚çœ‹é”™äº†
 
     test_driver();
     return 0;

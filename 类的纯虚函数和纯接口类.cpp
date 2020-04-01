@@ -1,9 +1,9 @@
 /*
  * @Author: your name
  * @Date: 2020-02-27 15:41:03
- * @LastEditTime: 2020-03-01 10:42:03
+ * @LastEditTime: 2020-04-01 10:58:42
  * @LastEditors: Please set LastEditors
- * @Description: ÓĞ¹ØÀàµÄÊµÀı
+ * @Description: æœ‰å…³ç±»çš„å®ä¾‹
  * @FilePath: /wanmen3/EmpForClass.java
  */
 
@@ -14,7 +14,7 @@ using namespace std;
 
 class Vector{
 public:
-    // ²ÎÊıÁĞ±í
+    // å‚æ•°åˆ—è¡¨
     Vector(initializer_list<double> list)
      :sz{list.size()},
       elem{new double[sz]}
@@ -34,7 +34,7 @@ public:
         delete[] elem;
     }
 
-    // ¸´ÖÆ¿½±´º¯Êı
+    // å¤åˆ¶æ‹·è´å‡½æ•°
     Vector(const Vector &other)
      :sz{other.sz},
       elem{new double[sz]}
@@ -48,11 +48,11 @@ private:
     double *elem;
 };
 
-// ´¿½Ó¿ÚÀà, Ö»Òª¸ÃÀà°üº¬Ò»¸ö´¿Ğéº¯Êıpure virtual function,Ôò¸ÃÀàÎª´¿½Ó¿ÚÀàpure virtual class 
+// çº¯æ¥å£ç±», åªè¦è¯¥ç±»åŒ…å«ä¸€ä¸ªçº¯è™šå‡½æ•°pure virtual function,åˆ™è¯¥ç±»ä¸ºçº¯æ¥å£ç±»pure virtual class 
 class Container{
 public:
-    // ´¿Ğéº¯Êı
-    // ´¿Ğéº¯ÊıÄ¿µÄÔÚÓÚ¶¨ÒåºÃ½Ó¿Ú, ÀıÈçÕâÀïÆäËû¼Ì³ĞµÄº¯Êı±ØĞëºÍ´¿Ğéº¯ÊıÖĞµÄÍêÈ«ÏàÍ¬, ¼õÉÙ´íÎó, ÀıÈçÕâ¸ödouble &operator[]
+    // çº¯è™šå‡½æ•°
+    // çº¯è™šå‡½æ•°ç›®çš„åœ¨äºå®šä¹‰å¥½æ¥å£, ä¾‹å¦‚è¿™é‡Œå…¶ä»–ç»§æ‰¿çš„å‡½æ•°å¿…é¡»å’Œçº¯è™šå‡½æ•°ä¸­çš„å®Œå…¨ç›¸åŒ, å‡å°‘é”™è¯¯, ä¾‹å¦‚è¿™ä¸ªdouble &operator[]
     virtual double &operator[](size_t i) = 0;
     virtual size_t siz() = 0;
     ~Container(){}

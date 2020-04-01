@@ -1,9 +1,9 @@
 /*
  * @Author: your name
  * @Date: 2020-03-10 09:49:41
- * @LastEditTime: 2020-03-12 17:17:48
+ * @LastEditTime: 2020-04-01 11:07:18
  * @LastEditors: Please set LastEditors
- * @Description: list ÈİÆ÷Óë¶àÌ¬µÄÎ¢Ãî¹ØÏµ
+ * @Description: list å®¹å™¨ä¸å¤šæ€çš„å¾®å¦™å…³ç³»
  * @FilePath: /wanmen_container/list.cpp
  */
 #include <iostream>
@@ -19,7 +19,7 @@ class Shape {
    private:
     int a;
 };
-// ¶ÔÓÚÈİÆ÷À´Ëµ Ïà±ÈÓÚÈİÆ÷ÖĞ·ÅÒ»¸ö»ùÀàÀ´Ëµ, ·ÅÈİÆ÷Ö¸ÕëºÍÖ»ÄÜÖ¸ÕëÊÇ¸üºÃµÄÑ¡Ôñ
+// å¯¹äºå®¹å™¨æ¥è¯´ ç›¸æ¯”äºå®¹å™¨ä¸­æ”¾ä¸€ä¸ªåŸºç±»æ¥è¯´, æ”¾å®¹å™¨æŒ‡é’ˆå’Œåªèƒ½æŒ‡é’ˆæ˜¯æ›´å¥½çš„é€‰æ‹©
 
 vector<Shape> vs;
 vector<Shape*> vps;
@@ -29,7 +29,7 @@ template <typename T>
 class Vec : public std::vector<T> {
    public:
     using vector<T>::vector;
-    T& operator[](int i) { return vector<T>::at(i); }  // at¾ßÓĞ±ß½ç¼ì²éµÄÄÜÁ¦
+    T& operator[](int i) { return vector<T>::at(i); }  // atå…·æœ‰è¾¹ç•Œæ£€æŸ¥çš„èƒ½åŠ›
 };
 
 struct Entry {
@@ -56,7 +56,7 @@ public:
     // second function use for-loop to get p-iterator(distance((list)phone_book, p))
     int get2(string str) const{
         for(auto p = phone_book.begin(); p != phone_book.end(); p ++){// The p's type
-            cout << "p's type is : " << typeid(p).name() << endl; // ÒÀÀµ¿â typeinfo // typeif(var).name()
+            cout << "p's type is : " << typeid(p).name() << endl; // ä¾èµ–åº“ typeinfo // typeif(var).name()
             if(p->str == str){
                 return p->num;
             }
@@ -66,8 +66,8 @@ public:
    private:
     list<Entry> phone_book;
     // write as map<string, int> phone_book; 
-    // map is Red-Black Tree  »á¸ù¾İfirstÅÅĞò, ÊÇÒ»ÖÖ×ÔÊÊÓ¦Æ½ºâÊ÷ setÍ¬Àí
-    // Èô²»ÏëÅÅĞò, ¿ÉÒÔ½èÖúhash tableµÄsetºÍmap unordered_set unordered_map
+    // map is Red-Black Tree  ä¼šæ ¹æ®firstæ’åº, æ˜¯ä¸€ç§è‡ªé€‚åº”å¹³è¡¡æ ‘ setåŒç†
+    // è‹¥ä¸æƒ³æ’åº, å¯ä»¥å€ŸåŠ©hash tableçš„setå’Œmap unordered_set unordered_map
     /* template<typename T>
     struct make_pair
     {
@@ -84,11 +84,11 @@ int main() {
     advance(p, 2);
     cout << "lst advance p: " << *p << endl;
     auto q =
-        intList.end();  // ÕâÀïĞèÒª¸øq -- µ±Ç°List¿ªÊ¼ÓÚbegin(), ½áÊøÓÚ< end()
+        intList.end();  // è¿™é‡Œéœ€è¦ç»™q -- å½“å‰Listå¼€å§‹äºbegin(), ç»“æŸäº< end()
     q--;
     cout << "lst end q:" << *q << endl;
     cout << "distancd(p & q): " << distance(p, q)
-         << endl;  // ·µ»ØÁ½¸öÖ¸ÕëÖ®¼äµÄ¾àÀë
+         << endl;  // è¿”å›ä¸¤ä¸ªæŒ‡é’ˆä¹‹é—´çš„è·ç¦»
     iter_swap(p, q);
     for (auto& x : intList) {
         cout << x << " ";

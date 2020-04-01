@@ -1,12 +1,12 @@
 /*
  * @Author: your name
  * @Date: 2020-03-11 18:07:17
- * @LastEditTime: 2020-03-11 18:30:07
+ * @LastEditTime: 2020-04-01 11:01:51
  * @LastEditors: Please set LastEditors
  * @Description: Exception
  * @FilePath: /exception/1.cpp
  */
-// ÔÚÔËĞĞÆÚ¼ä×ªÒÆ³ÌĞò¿ØÖÆÈ¨µÄ·½Ê½
+// åœ¨è¿è¡ŒæœŸé—´è½¬ç§»ç¨‹åºæ§åˆ¶æƒçš„æ–¹å¼
 
 #include <iostream>
 #include <exception>
@@ -16,7 +16,7 @@ using namespace std;
 
 class MyException : public exception {
     public:
-    string msg() const{ // ´ËÏî²»ÊÇ¼Ì³ĞµÄ
+    string msg() const{ // æ­¤é¡¹ä¸æ˜¯ç»§æ‰¿çš„
         return "my exception\n";
     }
 };
@@ -30,7 +30,7 @@ class A {
 int main() {
     try{
         A a;
-        // ÔÚÅ×³öÒì³£Ê±»á×Ô¶¯µ÷ÓÃÎö¹¹º¯Êı;
+        // åœ¨æŠ›å‡ºå¼‚å¸¸æ—¶ä¼šè‡ªåŠ¨è°ƒç”¨ææ„å‡½æ•°;
         throw MyException();
     } catch (MyException &e) {
         std::cout << "MyException\n";

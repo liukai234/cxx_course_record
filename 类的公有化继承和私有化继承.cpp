@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-02-26 21:41:06
- * @LastEditTime: 2020-02-26 21:45:21
+ * @LastEditTime: 2020-04-01 10:59:26
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /newclass/5.cpp
@@ -16,7 +16,7 @@ public:
     }
 };
 
-// ¶¨ÒåÀàµÄ¼Ì³Ğ·½Ê½, ¹«ÓĞ»¯¼Ì³Ğ, Ë½ÓĞ»¯¼Ì³Ğ
+// å®šä¹‰ç±»çš„ç»§æ‰¿æ–¹å¼, å…¬æœ‰åŒ–ç»§æ‰¿, ç§æœ‰åŒ–ç»§æ‰¿
 class Derived : private Base{
 public:
     void bar(){

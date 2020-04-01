@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-03-10 20:55:45
- * @LastEditTime: 2020-03-12 10:54:21
+ * @LastEditTime: 2020-04-01 11:07:00
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /wanmen_container/algorithm.cpp
@@ -44,29 +44,29 @@ bool has_c(const string &s, char c) {
 void trans() {
     vector<string> quote{"This", "is", "a", "C++", "class"};
     vector<string> res;
-    // algorithm ÖĞtransform ºÍ for_eachµÄÊ¹ÓÃ
+    // algorithm ä¸­transform å’Œ for_eachçš„ä½¿ç”¨
     transform(begin(quote), end(quote), back_inserter(res),
               [](const string &word) { return "<" + word + ">"; });
-              // ³ÆÎªlambda±í´ïÊ½
+              // ç§°ä¸ºlambdaè¡¨è¾¾å¼
     for_each(begin(res), end(res),
              [](const string &word) { cout << word << endl; });
 }
 
 int main() {
-    // sort(iter begin, iter end) // µü´úÆ÷ÆğÊ¼µØÖ·
+    // sort(iter begin, iter end) // è¿­ä»£å™¨èµ·å§‹åœ°å€
     // unique_copy(T1 begin, T1 end, T2 begin)
-    // ¿ÉÒÔ½«vector¿½±´µ½list»òqueueÖĞ
-    // ½«T1ÖĞµÄÄÚÈİ¿½±´µ½T2ÖĞ
+    // å¯ä»¥å°†vectoræ‹·è´åˆ°listæˆ–queueä¸­
+    // å°†T1ä¸­çš„å†…å®¹æ‹·è´åˆ°T2ä¸­
 
     /* bool operator<(const Entry &x, const Entry &y){
         return x.name < y.name;
     } */
     trans();
-    // lambda ±í´ïÊ½
+    // lambda è¡¨è¾¾å¼
     string str = "testing";
-    // cxx 14 lambda ÀàĞÍÍÆµ¼
+    // cxx 14 lambda ç±»å‹æ¨å¯¼
     auto autopush = [](const auto &x) { return x * x; };
-    // ÔÚlambadÇ°µÄ·½À¨ºÅÖĞÊÇÍâ²¿±äÁ¿·ÃÎÊ·½Ê½ËµÃ÷·û, = can be read  &can be modified
+    // åœ¨lambadå‰çš„æ–¹æ‹¬å·ä¸­æ˜¯å¤–éƒ¨å˜é‡è®¿é—®æ–¹å¼è¯´æ˜ç¬¦, = can be read  &can be modified
     auto qouit = [=, &str](const int &value) { cout << str; str = "modify"; return value * value; }; // CLASS STRUCT LAMBAD + ;
     cout << qouit(10) << endl;
     cout << autopush(10.10) << endl;

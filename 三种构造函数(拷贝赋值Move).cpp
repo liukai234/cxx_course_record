@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-02-24 10:08:45
- * @LastEditTime: 2020-02-25 16:56:27
+ * @LastEditTime: 2020-04-01 11:00:12
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /newclass/1.cpp
@@ -17,33 +17,33 @@ private:
     double *elem;
 
 public:
-    // Á½ÖÖ¹¹Ôìº¯ÊıµÄ³õÊ¼»¯ĞÎÊ½¶¼ÊÇÃ»ÓĞÎÊÌâµÄ
+    // ä¸¤ç§æ„é€ å‡½æ•°çš„åˆå§‹åŒ–å½¢å¼éƒ½æ˜¯æ²¡æœ‰é—®é¢˜çš„
     /* Vector(int size){
         sz = size;
         elem = new double(size);
     } */
-    // explicit ÏÔÊ¾µÄ(ÓÃÀ´±ÜÃâÒşÊ½µÄ×ª»¯)
+    // explicit æ˜¾ç¤ºçš„(ç”¨æ¥é¿å…éšå¼çš„è½¬åŒ–)
     Vector(size_t size)
         : sz{size},
           elem{new double[size]}
     {
     }
 
-    // ¸³Öµ¹¹Ôìº¯Êı 
-    // copy assignment: clean up target and copy // Éî¿½±´
-    // ÓÃÓÚÔÚÈÃÁ½¸öÀàÏàµÈ¸³ÖµµÄÊ±ºò²Å»á´¥·¢ B = A, ²¢ÇÒÔÚB = A·¢ÉúÊ±, µ÷ÓÃµÄÊÇBµÄ operator ÔªËØ
+    // èµ‹å€¼æ„é€ å‡½æ•° 
+    // copy assignment: clean up target and copy // æ·±æ‹·è´
+    // ç”¨äºåœ¨è®©ä¸¤ä¸ªç±»ç›¸ç­‰èµ‹å€¼çš„æ—¶å€™æ‰ä¼šè§¦å‘ B = A, å¹¶ä¸”åœ¨B = Aå‘ç”Ÿæ—¶, è°ƒç”¨çš„æ˜¯Bçš„ operator å…ƒç´ 
     /* Vector &operator=(const Vector& a){ 
         double *p = new double[a.sz];
         for(size_t i = 0; i < a.sz; i++){
             p[i] = a.elem[i];
         }
-        delete[] elem; //BÖĞµÄelemÔªËØ
+        delete[] elem; //Bä¸­çš„elemå…ƒç´ 
         elem = p;
         sz = a.sz;
         return *this;
     } */
 
-    // Move ¸³Öµº¯Êı
+    // Move èµ‹å€¼å‡½æ•°
     // 
     /* Vector &operator=(Vector&& a){
         elem = a.elem;
@@ -53,7 +53,7 @@ public:
         return *this;
     } */
 
-    // Move ¹¹Ôìº¯Êı
+    // Move æ„é€ å‡½æ•°
     // move assignment: clean up target and move
     /* Vector(Vector&& a)
         :elem{a.elem},
@@ -65,10 +65,10 @@ public:
 
 
 
-    // ¿½±´¹¹Ôìº¯Êı
+    // æ‹·è´æ„é€ å‡½æ•°
     // Vector(const Vector &other);
 
-    // º¬²ÎÊıÁĞ±íµÄ¹¹Ôìº¯Êı
+    // å«å‚æ•°åˆ—è¡¨çš„æ„é€ å‡½æ•°
     /* Vector(initializer_list<double> lst)
      :sz{lst.size()},
      elem{new double(lst.size())}
@@ -82,41 +82,41 @@ public:
     }
 };
 
-// ·¢ÉúÔÚÓÃAÀà³õÊ¼»¯BÀà
+// å‘ç”Ÿåœ¨ç”¨Aç±»åˆå§‹åŒ–Bç±»
 /* Vector::Vector (const Vector &other)
     : sz{other.sz},
     elem{new double[other.sz]}
 {
-    // Ïàµ±ÓÚ´Ë²Ù×÷
+    // ç›¸å½“äºæ­¤æ“ä½œ
     /* size_t sz = other.sz;
     double* elem = new double[other.sz]; */
 
-    //¶ÔĞÂ¿ª±ÙµÄ¶Ñ¿Õ¼ä ¸³ÓèÔ­¶Ñ¿Õ¼äµÄÄÚÈİ
+    //å¯¹æ–°å¼€è¾Ÿçš„å †ç©ºé—´ èµ‹äºˆåŸå †ç©ºé—´çš„å†…å®¹
     /*for(size_t i; i < sz; i++){
         elem[i] = other.elem[i];
     }
 } */
 
-// Move¹¹Ôìº¯Êı
+// Moveæ„é€ å‡½æ•°
 
 
 int main(int args, char *argv[])
 {
-    // ¶ÔÓÚ²ÎÊıÁĞ±íÀ´Ëµ: Ö»ÄÜÊ¹ÓÃÒÔÏÂ·½Ê½1
-    // ¶Ô Vector A = {1.0, 2.0, 3.0};
-    // ´í Vector A(1.0, 2.0, 3.0);
+    // å¯¹äºå‚æ•°åˆ—è¡¨æ¥è¯´: åªèƒ½ä½¿ç”¨ä»¥ä¸‹æ–¹å¼1
+    // å¯¹ Vector A = {1.0, 2.0, 3.0};
+    // é”™ Vector A(1.0, 2.0, 3.0);
 
-    // ¶ÔÓÚµ¥¸ö»ò¶à¸ö²ÎÊıÀ´ËµÒÔÏÂÁ½ÖÖ·½Ê½¶¼ÊÇ¿ÉĞĞµÄ
+    // å¯¹äºå•ä¸ªæˆ–å¤šä¸ªå‚æ•°æ¥è¯´ä»¥ä¸‹ä¸¤ç§æ–¹å¼éƒ½æ˜¯å¯è¡Œçš„
     /* Vector B(5, 6);
     Vector C = {5, 6}; */
 
     Vector A(5);
-    // Vector B = A; // ÓÃAÀà³õÊ¼»¯BÀà
-    // A.~Vector(); ±àÒëÆ÷»á×Ô¶¯µ÷ÓÃÎö¹¹º¯Êı
-    // Vector B = A; // °üº¬¶¯Ì¬ÄÚ´ænew, ±àÒëÆ÷»áÑ¡ÔñÇ³¿½±´, ¼´¶¯Ì¬ÄÚ´æµÄÁ½¸öÕ»Ö¸ÕëÖ¸ÏòÍ¬Ò»¿é¶Ñ¿Õ¼ä
+    // Vector B = A; // ç”¨Aç±»åˆå§‹åŒ–Bç±»
+    // A.~Vector(); ç¼–è¯‘å™¨ä¼šè‡ªåŠ¨è°ƒç”¨ææ„å‡½æ•°
+    // Vector B = A; // åŒ…å«åŠ¨æ€å†…å­˜new, ç¼–è¯‘å™¨ä¼šé€‰æ‹©æµ…æ‹·è´, å³åŠ¨æ€å†…å­˜çš„ä¸¤ä¸ªæ ˆæŒ‡é’ˆæŒ‡å‘åŒä¸€å—å †ç©ºé—´
 }
-// ÔÙÀàµÄÍâ²¿ÉùÃ÷¶¨Òåº¯Êı, ÔÚÀàµÄÄÚ²¿¶¨Òå
-// ¸ßÄÚ¾Û, µÍñîºÏ
+// å†ç±»çš„å¤–éƒ¨å£°æ˜å®šä¹‰å‡½æ•°, åœ¨ç±»çš„å†…éƒ¨å®šä¹‰
+// é«˜å†…èš, ä½è€¦åˆ
 /* Vector::Vector(size_t size)
     : sz{size},
       elem{new double[sz]}

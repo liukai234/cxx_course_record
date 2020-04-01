@@ -1,9 +1,9 @@
 /*
  * @Author: your name
  * @Date: 2020-02-25 17:08:53
- * @LastEditTime: 2020-02-25 21:25:03
+ * @LastEditTime: 2020-04-01 11:02:27
  * @LastEditors: Please set LastEditors
- * @Description: ÓÑÔª
+ * @Description: å‹å…ƒ
  * @FilePath: /newclass/2.cpp
  */
 #include <iostream>
@@ -12,17 +12,17 @@ class Box {
     double width;
 
    public:
-    // ÓÑÔªº¯ÊıÉùÃ÷
+    // å‹å…ƒå‡½æ•°å£°æ˜
     friend void print(Box &box);
-    // ÓÑÔªÀàÉùÃ÷
+    // å‹å…ƒç±»å£°æ˜
     friend class Mybox;
     void getWidth(double &wid) { width = wid; }
 };
 
-// ÓÑÔªº¯Êı
+// å‹å…ƒå‡½æ•°
 void print(Box &box) { std::cout << box.width << std::endl; }
 
-// ÓÑÔªÀàµÄÒâÒåÔÚÄÄÀï: µ±BoxÖĞ¶¨ÒåÁËMyboxÓÑÔªÊ±, ÔÚMyboxÀàÖĞ¿ÉÒÔÇáËÉÊ¹ÓÃBoxÖĞµÄº¯Êı³ÉÔ±À´Íê³É±¾ÀàÊı¾İµÄÊä³ö»òÆäËû²Ù×÷
+// å‹å…ƒç±»çš„æ„ä¹‰åœ¨å“ªé‡Œ: å½“Boxä¸­å®šä¹‰äº†Myboxå‹å…ƒæ—¶, åœ¨Myboxç±»ä¸­å¯ä»¥è½»æ¾ä½¿ç”¨Boxä¸­çš„å‡½æ•°æˆå‘˜æ¥å®Œæˆæœ¬ç±»æ•°æ®çš„è¾“å‡ºæˆ–å…¶ä»–æ“ä½œ
 class Mybox {
    private:
     double width;
@@ -31,7 +31,7 @@ class Mybox {
     Mybox(const int &num) { width = num; }
     void friendprint(Box &box) {
         box.getWidth(width);
-        box.width = 5; // Ê¹ÓÃÓÑÔªÀà·ÃÎÊË½ÓĞ³ÉÔ±
+        box.width = 5; // ä½¿ç”¨å‹å…ƒç±»è®¿é—®ç§æœ‰æˆå‘˜
     }
 };
 

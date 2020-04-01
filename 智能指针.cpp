@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-03-13 15:09:46
- * @LastEditTime: 2020-03-19 17:50:57
+ * @LastEditTime: 2020-04-01 11:02:59
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /exception_ptr/3.cpp
@@ -19,15 +19,15 @@ class test{
     static int a;
 };
 
-int test::a = 5; // 静态成员的定义方法
+int test::a = 5; // 闈欐�佹垚鍛樼殑瀹氫箟鏂规硶
 
 int main() {
     /* int *p = new int(5);
     delete p;
-    p = nullptr; // delete之后要对指针置空
+    p = nullptr; // delete涔嬪悗瑕佸鎸囬拡缃┖
     return 0; */
-    // 使用智能指针
-    // 智能指针 unique_ptr shared_ptr weak_ptr 用于类的指针, 访问类的成员;
+    // 浣跨敤鏅鸿兘鎸囬拡
+    // 鏅鸿兘鎸囬拡 unique_ptr shared_ptr weak_ptr 鐢ㄤ簬绫荤殑鎸囬拡, 璁块棶绫荤殑鎴愬憳;
     int a = 5;
     unique_ptr<int> p2{make_unique<int>()};
     // p2 = 5;

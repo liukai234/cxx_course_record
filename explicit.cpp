@@ -1,7 +1,7 @@
 /*
  * @Author: liukai
  * @Date: 2020-02-22 13:37:31
- * @LastEditTime: 2020-03-19 18:02:50
+ * @LastEditTime: 2020-04-01 11:04:17
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /wanmen2/mytest.cpp
@@ -12,7 +12,7 @@ using namespace std;
 
 class Add {
    public:
-    // explicit ÏÔĞÔµÄ
+    // explicit æ˜¾æ€§çš„
     explicit Add(const int& a) : num(a) {}
     int Num() { return num; }
     ~Add() {}
@@ -22,9 +22,9 @@ class Add {
 };
 
 int main(int args, char* argv[]) {
-    // ÒâÒå:
-    // Èç¹ûÃ»ÓĞexplicitµÄ»°¾ÍÏàµ±ÓÚ Add temp(5); Add obj = temp; ÏÈ´´½¨ÁÙÊ±¶ÔÏó, È»ºó½øĞĞ¸³Öµ
-    // Èç¹ûÓĞexplicit¾Í²»ÔÊĞí·¢ÉúÕâÖÖÏÈ´´½¨ºó¸³ÖµµÄÏÖÏó, 
+    // æ„ä¹‰:
+    // å¦‚æœæ²¡æœ‰explicitçš„è¯å°±ç›¸å½“äº Add temp(5); Add obj = temp; å…ˆåˆ›å»ºä¸´æ—¶å¯¹è±¡, ç„¶åè¿›è¡Œèµ‹å€¼
+    // å¦‚æœæœ‰explicitå°±ä¸å…è®¸å‘ç”Ÿè¿™ç§å…ˆåˆ›å»ºåèµ‹å€¼çš„ç°è±¡, 
     // Add add = 5; // wrong
     Add add(5); 
 

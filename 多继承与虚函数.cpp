@@ -1,9 +1,9 @@
 /*
  * @Author: your name
  * @Date: 2020-02-27 14:40:45
- * @LastEditTime: 2020-02-27 15:39:40
+ * @LastEditTime: 2020-04-01 10:57:56
  * @LastEditors: Please set LastEditors
- * @Description: ¶à¼Ì³ĞÓëĞéº¯Êı
+ * @Description: å¤šç»§æ‰¿ä¸è™šå‡½æ•°
  * @FilePath: /wanmen3/test.cpp
  */
 #include <iostream>
@@ -42,6 +42,6 @@ int main() {
     Base *b1 = new Derived;
     b1->foo();
     delete b1;
-    // ÈëÕ»·½Ê½: BaseÏÈÈëÕ», È»ºóDerivedÈëÕ», È»ºódeleteÊ±ÏÈÎö¹¹Derived, È»ºóÎö¹¹Base
+    // å…¥æ ˆæ–¹å¼: Baseå…ˆå…¥æ ˆ, ç„¶åDerivedå…¥æ ˆ, ç„¶ådeleteæ—¶å…ˆææ„Derived, ç„¶åææ„Base
     return 0;
 }

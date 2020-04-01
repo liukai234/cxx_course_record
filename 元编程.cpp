@@ -1,14 +1,14 @@
 /*
  * @Author: your name
  * @Date: 2020-03-03 15:19:07
- * @LastEditTime: 2020-03-19 17:47:34
+ * @LastEditTime: 2020-04-01 11:02:42
  * @LastEditors: Please set LastEditors
- * @Description: Ôª±à³Ì
+ * @Description: å…ƒç¼–ç¨‹
  * @FilePath: /wanmen3/2.cpp
  */
-// lambdaËã×Ó
-// º¯Êı½ÓÊÕÒ»¸öÀàĞÍ²¢·µ»ØÒ»¸öÀàĞÍ, ¶ø²»ÊÇÏñÖ®Ç°Ò»Ñù½ÓÊÕÒ»¸öÖµ·µ»ØÒ»¸öÖµ
-// ÄÇÃ´Õâ¸öº¯Êı³ÆÎªÔªº¯Êı
+// lambdaç®—å­
+// å‡½æ•°æ¥æ”¶ä¸€ä¸ªç±»å‹å¹¶è¿”å›ä¸€ä¸ªç±»å‹, è€Œä¸æ˜¯åƒä¹‹å‰ä¸€æ ·æ¥æ”¶ä¸€ä¸ªå€¼è¿”å›ä¸€ä¸ªå€¼
+// é‚£ä¹ˆè¿™ä¸ªå‡½æ•°ç§°ä¸ºå…ƒå‡½æ•°
 
 #include <iostream>
 #include <map>
@@ -18,15 +18,15 @@ using namespace std;
 class Vector {
    public:
     using value_type = T;
-    // ÒÔºó¼ûµ½value_typeÄ¬ÈÏÎªÒ»¸öÍ¨ÓÃ·½·¨
-    // using Ïàµ±Óë¸øÁËTÒ»¸ö±ğÃûvalue_type
+    // ä»¥åè§åˆ°value_typeé»˜è®¤ä¸ºä¸€ä¸ªé€šç”¨æ–¹æ³•
+    // using ç›¸å½“ä¸ç»™äº†Tä¸€ä¸ªåˆ«åvalue_type
 }; */
 
 template <typename C>
 using Element_type = typename C::value_type;
 
 template <typename Container>
-// Ôª±à³Ì
+// å…ƒç¼–ç¨‹
 void algo(Container &C) {
     Vector<Element_type<Container>> vec;
 }
@@ -37,7 +37,7 @@ class Map {
 }; */
 
 
-// Ê¹ÓÃusing¶¨ÒåĞÂµÄÄ£°å
+// ä½¿ç”¨usingå®šä¹‰æ–°çš„æ¨¡æ¿
 template <typename Value>
 using String_map = map<string, Value>;
 
