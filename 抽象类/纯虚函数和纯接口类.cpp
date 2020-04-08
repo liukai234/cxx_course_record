@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-02-27 15:41:03
- * @LastEditTime: 2020-04-03 09:47:08
+ * @LastEditTime: 2020-04-08 16:15:43
  * @LastEditors: Please set LastEditors
  * @Description: 纯虚函数和 纯接口类/抽象类
  * @FilePath: /wanmen3/EmpForClass.java
