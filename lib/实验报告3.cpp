@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-04-07 15:06:39
- * @LastEditTime: 2020-04-08 16:26:55
+ * @LastEditTime: 2020-04-09 10:22:09
  * @LastEditors: Please set LastEditors
  * @Description:定义抽象基类Shape，由它派生出3个派生类：
  * Circle(圆形)、Square（正方形）、Rectangle（矩形）。
@@ -75,6 +75,7 @@ T const Rectangle<T>::area() const { return length * width; }
 void test_driver(){ 
     vector<Shape<double>* > vec_shape;
     Circle<double> circle(2.1);
+    // cout << circle.area() << endl; // 静态绑定
     vec_shape.push_back(&circle);
 
     Square<double> square(2.1);
@@ -85,7 +86,7 @@ void test_driver(){
 
     cout << "面积分别为：";
     for(auto &x : vec_shape) {
-        cout << x->area() << " ";
+        cout << x->area() << " "; // 动态绑定
     }
     cout << endl;
 }
