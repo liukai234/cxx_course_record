@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-03-10 20:55:45
- * @LastEditTime: 2020-04-01 11:07:00
+ * @LastEditTime: 2020-04-10 17:09:58
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /wanmen_container/algorithm.cpp
@@ -11,6 +11,7 @@
 #include <list>
 #include <string>
 #include <vector>
+// #include <dbg.h>
 
 using namespace std;
 
@@ -41,6 +42,7 @@ bool has_c(const string &s, char c) {
     return find(s.begin(), s.end(), c) != s.end();
 }
  */
+
 void trans() {
     vector<string> quote{"This", "is", "a", "C++", "class"};
     vector<string> res;
@@ -64,10 +66,12 @@ int main() {
     trans();
     // lambda 表达式
     string str = "testing";
-    // cxx 14 lambda 类型推导
-    auto autopush = [](const auto &x) { return x * x; };
     // 在lambad前的方括号中是外部变量访问方式说明符, = can be read  &can be modified
     auto qouit = [=, &str](const int &value) { cout << str; str = "modify"; return value * value; }; // CLASS STRUCT LAMBAD + ;
     cout << qouit(10) << endl;
+    // dbg(str); // str 更新为"modify"
+    
+    // cxx 14 lambda 类型推导
+    auto autopush = [](const auto &x) { return x * x; };
     cout << autopush(10.10) << endl;
 }
