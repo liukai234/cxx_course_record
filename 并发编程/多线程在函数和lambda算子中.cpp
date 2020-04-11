@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-04-10 17:28:24
- * @LastEditTime: 2020-04-10 18:50:14
+ * @LastEditTime: 2020-04-11 17:46:22
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /C++课程学习记录/thread多线程/intro.cpp
@@ -48,10 +48,11 @@ int main() {
     t2.join();
     
     auto stopTime = high_resolution_clock::now();
-    auto duration = duration_cast<microseconds>(stopTime - startTime);
+    auto duration = duration_cast<milliseconds>(stopTime - startTime);
+    // 1seconds = 1,000milliseconds 毫秒 = 1,000,000microseconds 微秒 = 1,000,000,000nanosecond 纳秒
 
     cout << "EvenSum = " << EvenSum << endl;
     cout << "OddSum = " << OddSum << endl;
-    cout << "duration = " << duration.count() / 1000000 << endl;
+    printf("%.2fs\n", float(duration.count()/1000.0));
     return 0;
 }
