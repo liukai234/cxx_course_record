@@ -1,11 +1,11 @@
 /*
- * @Author: your name
- * @Date: 2020-02-23 11:19:15
- * @LastEditTime: 2020-02-23 14:03:31
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: /wanmen2/fib.cpp
+ * @Description: 
+ * @LastEditors: liukai
+ * @Date: 2020-04-13 08:28:59
+ * @LastEditTime: 2020-04-13 08:29:00
+ * @FilePath: /C++课程学习记录/动态规划中的fib数列.cpp
  */
+
 #include <iostream>
 #include <vector>
 using namespace std;
