@@ -1,14 +1,14 @@
 /*
  * @Author: your name
  * @Date: 2020-02-27 14:40:45
- * @LastEditTime: 2020-04-01 10:57:56
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-04-13 17:36:51
+ * @LastEditors: liukai
  * @Description: 多继承与虚函数
- * @FilePath: /wanmen3/test.cpp
+ * @FilePath: /C++课程学习记录/多继承与虚函数.cpp
  */
 #include <iostream>
-using namespace std;
-
+using namespace std; 
+ 
 class Base{
 public:
     Base(){

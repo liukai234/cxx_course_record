@@ -1,13 +1,15 @@
 /*
  * @Author: your name
  * @Date: 2020-04-09 14:35:01
- * @LastEditTime: 2020-04-10 15:16:40
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-04-16 18:36:27
+ * @LastEditors: liukai
  * @Description: In User Settings Edit
- * @FilePath: /C++课程学习记录/test.cpp
+ * @FilePath: /C++课程学习记录/dbg工具/dbg使用示例.cpp
  */
 #include <vector>
-#include <dbg.h>
+#include <utility>
+#include <string>
+#include "dbg.h"
 #define DBG_MACRO_DISABLE
 // You can use "dbg(..)" in expressions:
 int factorial(int n) {
@@ -31,6 +33,10 @@ int main() {
   dbg("this line is executed");  // [example.cpp:23 (main)] this line is executed
 
   factorial(4);
+  dbg(1);
+
+  std::pair<std::string, int> tx = std::make_pair("string", 2);
+  dbg(tx);
 
   return 0;
 }
