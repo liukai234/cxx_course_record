@@ -1,6 +1,6 @@
-.vscode/
+.vscode
 *.exe
 *.out
 test.cpp
 test
-build/
+build
