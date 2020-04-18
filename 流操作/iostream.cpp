@@ -1,8 +1,8 @@
 /*
- * @Description: 
+ * @Description: 数据流
  * @LastEditors: liukai
  * @Date: 2020-04-17 14:05:43
- * @LastEditTime: 2020-04-17 15:21:10
+ * @LastEditTime: 2020-04-18 16:55:04
  * @FilePath: /C++课程学习记录/流操作/iostream.cpp
  */
 #include <iostream>
