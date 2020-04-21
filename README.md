@@ -1,13 +1,13 @@
 <!--
  * @Author: your name
  * @Date: 2020-03-14 12:02:08
- * @LastEditTime: 2020-04-21 15:32:35
+ * @LastEditTime: 2020-04-21 15:36:05
  * @LastEditors: liukai
  * @Description: In User Settings Edit
  * @FilePath: /C++课程学习记录/README.md
  -->
 # C++课程学习记录
-## 开始于2020/3/14 liukai234
+## 开始于2020/3/14  liukai234
 🔨 build  
 [50%] ⚡ Compile ......  
 [100%] 🔋 All complete  
