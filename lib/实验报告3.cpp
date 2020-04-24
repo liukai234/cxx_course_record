@@ -1,13 +1,13 @@
 /*
  * @Author: your name
  * @Date: 2020-04-07 15:06:39
- * @LastEditTime: 2020-04-09 18:20:12
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-04-24 10:29:28
+ * @LastEditors: liukai
  * @Description:定义抽象基类Shape，由它派生出3个派生类：
  * Circle(圆形)、Square（正方形）、Rectangle（矩形）。
  * 用虚函数分别计算几种图形面积，并求它们的和。
  * 要求利用基类指针数组，使它的每一个元素指向一个派生类对象。
- * @FilePath: /C++课程学习记录/lib/test.cpp
+ * @FilePath: /C++课程学习记录/lib/实验报告3.cpp
  */
 
 #include <iostream>
