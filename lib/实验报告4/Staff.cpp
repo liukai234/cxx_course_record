@@ -2,7 +2,7 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-04-24 10:03:17
- * @LastEditTime: 2020-04-24 18:19:38
+ * @LastEditTime: 2020-04-25 11:51:37
  * @FilePath: /C++课程学习记录/lib/实验报告4/Staff.cpp
  */
 
@@ -12,11 +12,16 @@
 #include <vector>
 #include <string>
 #include <exception>
+#ifdef DEBUG
+#include "include/dbg.h"
+#endif
 
-// class FILE_ERROR_Exception : public std::exception { 
-// public:
 const char* FILE_ERROR_Exception::what() const throw(){
-  return "文件读取错误";
+  return "Exception: FILE_POEN_ERROR";
+}
+
+const std::string Staff::num(){
+  return num_;
 }
 
 std::istream &Staff::inFromTerminal(std::istream &in) {
@@ -39,25 +44,47 @@ std::ifstream &Staff::inFromFile(std::ifstream &inf) {
 
 std::ofstream &Staff::outToFile(std::ofstream &of) {
   // 设定输出格式
-	of << num_ << " " << name_ << " " << age_ << " " << wages_ << " ";
+	of << num_ << " " << name_ << " " << age_ << " " << wages_;
 	return of;
 }
 
-void load(const std::string &filename, std::vector<Staff* > &vpStaff) {
-  Staff temp_staff; // 没有参数的构造函数
+void Staff::load(const std::string &filename, std::vector<Staff* > &vpStaff) {
+  std::cout << "load: " << filename << std::endl;
   try{
-      std::ifstream infile("Staffinfo.txt", std::ios::in);
+      std::ifstream infile(filename, std::ios::in);
+      if(!infile) {throw FILE_ERROR_Exception();}
       while(infile.peek() != EOF) { 
-        // std::cout << infile.peek() << std::endl;  
-        infile >> temp_staff;
-        vpStaff.push_back(&temp_staff);
+        vpStaff.push_back(new Staff);
+        infile >> *vpStaff.back();
+#ifdef DEBUG
+        dbg(vpStaff.back());
+        dbg(vpStaff.size());
+        std::cout << *vpStaff.back();
+#endif
       }
-    infile.close();
-    // std::cout << "异常检测: " << std::endl;
-  }catch(FILE_ERROR_Exception e) {
+      infile.close();
+  }catch(FILE_ERROR_Exception &e) {
     std::cout << e.what() << std::endl;
   }
-  std::cout << "this............\n";
-  // return vpStaff;
-  // if(!infile) {std::cerr << "Staffinfo cannot open" << std::endl; exit(1); }
+}
+
+void Staff::save(const std::string &filename, std::vector<Staff* > &vpStaff) {
+  std::cout << "save: " << filename << std::endl;
+  try{
+      std::ofstream outfile(filename, std::ios::out);
+      if(!outfile) {throw FILE_ERROR_Exception();}
+
+      // output to file And format
+      for(std::vector<Staff* >::iterator ite = vpStaff.begin(); ite != vpStaff.end(); ite++){
+        outfile << **ite;
+        if(ite + 1 != vpStaff.end()) outfile << "\n";
+      } 
+#ifdef DEBUG
+        dbg(vpStaff.size());
+        std::cout << *vpStaff.back();
+#endif
+    outfile.close();
+  }catch(FILE_ERROR_Exception &e) {
+    std::cout << e.what() << std::endl;
+  }
 }
