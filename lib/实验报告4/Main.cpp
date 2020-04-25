@@ -2,7 +2,7 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-04-24 09:42:15
- * @LastEditTime: 2020-04-25 12:13:00
+ * @LastEditTime: 2020-04-25 12:27:27
  * @FilePath: /C++课程学习记录/lib/实验报告4/Main.cpp
  */
 
@@ -32,11 +32,11 @@ int main() {
   std::vector<Staff* > inputStaff;
   Staff* staff1 = new Staff("10001", "质检1", 1, 1);
   inputStaff.push_back(staff1);
-  Staff* staff2 = new Staff("10002", "质检2", 2, 2);  //堆中分配
+  Staff* staff2 = new Staff("10002", "质检2", 2, 2);
   inputStaff.push_back(staff2);
   Staff* staff3 = new Staff("10003", "质检3", 3, 3);
   inputStaff.push_back(staff3);
-  Staff* staff4 = new Staff("10004", "质检4", 4, 4);  //堆中分配
+  Staff* staff4 = new Staff("10004", "质检4", 4, 4);
   inputStaff.push_back(staff4);
   Staff* staff5 = new Staff("10005", "质检5", 5, 5);
   inputStaff.push_back(staff5);
