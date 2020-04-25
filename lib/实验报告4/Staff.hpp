@@ -2,8 +2,8 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-04-24 09:49:59
- * @LastEditTime: 2020-04-25 11:51:03
- * @FilePath: /C++课程学习记录/lib/实验报告4/Staff.hpp
+ * @LastEditTime: 2020-04-25 19:14:54
+ * @FilePath: /实验报告4/Staff.hpp
  */
 #pragma once
 
@@ -22,9 +22,7 @@ class Staff {
 public:
   Staff(){}
   Staff(const std::string &num, const std::string &name, int age, int wages) : num_{num}, name_{name}, age_{age}, wages_{wages} {}
-  ~Staff(){
-    // 对vector中指针指向的释放 dosomething
-  }
+  ~Staff(){}
   // ostream
   friend std::istream &operator>>(std::istream &in, Staff &obj) { return obj.inFromTerminal(in); }
   friend std::ostream &operator<<(std::ostream &out, Staff &obj) { return obj.outToTerminal(out); } 

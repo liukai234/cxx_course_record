@@ -2,7 +2,7 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-04-24 09:42:15
- * @LastEditTime: 2020-04-25 18:53:21
+ * @LastEditTime: 2020-04-25 19:01:07
  * @FilePath: /实验报告4/Main.cpp
  */
 
@@ -20,7 +20,10 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+
+#ifdef DEBUG
 #include "include/dbg.h"
+#endif
 
 int main() {
   const std::string filename = "Staffinfo.txt";
@@ -53,8 +56,10 @@ int main() {
     inputStaff.pop_back(); 
   }
 
-  // dbg(inputStaff);
-  // for(auto &x : inputStaff) { std::cout << *x; }
+#ifdef DEBUG
+  dbg(inputStaff);
+  for(auto &x : inputStaff) { std::cout << *x; }
+#endif
 
   // (2) 从键盘输入两个员工的数据(职工号大于已有的职工号)，增加到文件的末尾。
   try{
