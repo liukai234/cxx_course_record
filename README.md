@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-03-14 12:02:08
- * @LastEditTime: 2020-04-21 15:36:05
+ * @LastEditTime: 2020-04-26 08:51:13
  * @LastEditors: liukai
  * @Description: In User Settings Edit
  * @FilePath: /C++课程学习记录/README.md
@@ -13,7 +13,7 @@
 [100%] 🔋 All complete  
 🚀 launch  
 
-✔资源直达: 
+✔参考资源: 
 1. sharkdp/dbg-macro  地址: https://github.com/sharkdp/dbg-macro
 2. AnthonyCalandra / modern-cpp-features  地址: https://github.com/AnthonyCalandra/modern-cpp-features
 3. Light-City / CPlusPlusThings 地址: https://github.com/Light-City/CPlusPlusThings
