@@ -2,8 +2,8 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-04-24 09:42:15
- * @LastEditTime: 2020-04-26 08:43:14
- * @FilePath: /实验报告4/Main.cpp
+ * @LastEditTime: 2020-04-26 08:59:11
+ * @FilePath: /C++课程学习记录/实验报告/实验报告4/Main.cpp
  */
 
 /*
@@ -66,12 +66,12 @@ int main() {
   try{
     std::ofstream outfile(filename, std::ios::out | std::ios::app);
     if(!outfile) {throw FILE_ERROR_Exception();}
-    Staff find_staff; 
+    Staff temp_staff; 
     std::cout << "input 号码 姓名 年龄 工资 \n";
     for(int i = 0; i < 2; i++) {
-      std::cin >> find_staff;
+      std::cin >> temp_staff;
       outfile << "\n";
-      outfile << find_staff;
+      outfile << temp_staff;
     }
     outfile.close();
   }catch(FILE_ERROR_Exception &e) {
