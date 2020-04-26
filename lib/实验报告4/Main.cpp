@@ -2,7 +2,7 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-04-24 09:42:15
- * @LastEditTime: 2020-04-25 19:01:07
+ * @LastEditTime: 2020-04-26 08:43:14
  * @FilePath: /实验报告4/Main.cpp
  */
 
@@ -28,9 +28,6 @@
 int main() {
   const std::string filename = "Staffinfo.txt";
   Staff staff_file;
-/*   staff_file.load(filename, vpStaff);
-  for(auto &x : vpStaff) { std::cout << *x; }
-  staff_file.save(filename, vpStaff); */
   
   // (1) 按职工号由小到大的顺序将5个员工的数据(包括号码、姓名、年龄、工资)输出到磁盘文件中保存
   std::vector<Staff* > inputStaff;
@@ -49,12 +46,16 @@ int main() {
 #endif
   staff_file.save(filename, inputStaff);
   
-  while(!inputStaff.empty()) { 
-    delete inputStaff.back();
-    // delete static_cast<Staff* >(inputStaff.back()); 
-    inputStaff.back() = nullptr;
-    inputStaff.pop_back(); 
-  }
+  auto erase = [=](std::vector<Staff* > staff) {
+    while(!staff.empty()) {
+      delete staff.back();
+      // delete static_cast<Staff* >(inputStaff.back()); 
+      staff.back() = nullptr;
+      staff.pop_back(); 
+    }
+  };
+
+  erase(inputStaff);
 
 #ifdef DEBUG
   dbg(inputStaff);
@@ -65,12 +66,12 @@ int main() {
   try{
     std::ofstream outfile(filename, std::ios::out | std::ios::app);
     if(!outfile) {throw FILE_ERROR_Exception();}
-    Staff temp_staff; 
+    Staff find_staff; 
     std::cout << "input 号码 姓名 年龄 工资 \n";
     for(int i = 0; i < 2; i++) {
-      std::cin >> temp_staff;
+      std::cin >> find_staff;
       outfile << "\n";
-      outfile << temp_staff;
+      outfile << find_staff;
     }
     outfile.close();
   }catch(FILE_ERROR_Exception &e) {
@@ -83,18 +84,14 @@ int main() {
   for(auto &x : outputStaff) { std::cout << *x; }
   // staff_file.save(filename, outputStaff);
 
-  while(!outputStaff.empty()) { 
-    delete outputStaff.back();
-    outputStaff.back() = nullptr;
-    outputStaff.pop_back(); 
-  }
+  erase(outputStaff);
 
   // (4) 从键盘输入一个号码，从文件中查找有无此职工号，如有则显示此职工是第几个职工，以及此职工的
   //   全部数据。如没有，就输出“无此人”。可以反复多次查询，如果输入查找的职工号为0，就结束查询。
   std::vector<Staff* > findStaff;
   staff_file.load(filename, findStaff);
 
-  auto temp_staff = [=](const std::string &num){ 
+  auto find_staff = [=](const std::string &num){ 
     bool exist = false;
     int order = 1;
     for(std::vector<Staff *>::const_iterator ite = findStaff.begin(); ite != findStaff.end(); ite++, order++){
@@ -103,20 +100,15 @@ int main() {
     if(!exist) std::cout << "无此人" << std::endl;
    };
 
-  // using ite_type = decltype(temp_staff);
+  // using ite_type = decltype(find_staff);
   while(true) {
     std::cout << "输入查找号码: ";
     std::string num;
     std::cin >> num;
     if(std::stoi(num) == 0) break; 
-    temp_staff(num);
+    find_staff(num);
   }
-
-  while(!findStaff.empty()) { 
-    delete findStaff.back();
-    findStaff.back() = nullptr;
-    findStaff.pop_back(); 
-  }
+  erase(findStaff);
 
   return EXIT_SUCCESS; 
 }
