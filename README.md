@@ -1,13 +1,14 @@
 <!--
  * @Author: your name
  * @Date: 2020-03-14 12:02:08
- * @LastEditTime: 2020-04-26 08:51:13
+ * @LastEditTime: 2020-04-27 09:44:34
  * @LastEditors: liukai
  * @Description: In User Settings Edit
  * @FilePath: /C++课程学习记录/README.md
  -->
 # C++课程学习记录
 ## 开始于2020/3/14  liukai234
+## 编程本身没什么特别的，就像可以标记的铅笔一样，仅此而已, 思考从混沌世界抽象出普遍规律特征
 🔨 build  
 [50%] ⚡ Compile ......  
 [100%] 🔋 All complete  
