@@ -2,7 +2,7 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-04-24 09:42:15
- * @LastEditTime: 2020-04-26 08:59:11
+ * @LastEditTime: 2020-04-27 11:29:43
  * @FilePath: /C++课程学习记录/实验报告/实验报告4/Main.cpp
  */
 
@@ -13,6 +13,8 @@
 (4) 从键盘输入一个号码，从文件中查找有无此职工号，如有则显示此职工是第几个职工，以及此职工的
     全部数据。如没有，就输出“无此人”。可以反复多次查询，如果输入查找的职工号为0，就结束查询。
 */
+
+// dosomething 将 std::vector<Staff *>, erase(), find_staff()增加为Staff类成员
 
 #include "Staff.hpp"
 #include <iostream>
