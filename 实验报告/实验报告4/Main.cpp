@@ -2,7 +2,7 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-04-28 14:27:37
- * @LastEditTime: 2020-04-28 16:36:13
+ * @LastEditTime: 2020-04-28 17:13:27
  * @FilePath: /C++课程学习记录/实验报告/实验报告4/Main.cpp
  */
 
@@ -10,7 +10,7 @@
 
 #include <iostream>
 
-
+// dosomething 使用枚举或其他来定义月份 [31, 28 ...]
 
 class CDate{
 public:

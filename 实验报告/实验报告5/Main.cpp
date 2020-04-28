@@ -2,11 +2,9 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-04-28 14:27:37
- * @LastEditTime: 2020-04-28 17:03:47
+ * @LastEditTime: 2020-04-28 17:10:56
  * @FilePath: /C++课程学习记录/实验报告/实验报告5/Main.cpp
  */
-
-#include "include/dbg.h"
 
 #include <iostream>
 #include <string>
@@ -26,6 +24,6 @@ int Goods::s_weight = 0;
 
 int main() {
     Goods good1("1", 1);
-    std::cout << good1.add(good1) << std::endl;
+    std::cout << Goods::add(good1) << std::endl;
     return 0;
 }
