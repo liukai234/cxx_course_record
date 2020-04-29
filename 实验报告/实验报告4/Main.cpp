@@ -2,7 +2,7 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-04-28 14:27:37
- * @LastEditTime: 2020-04-29 10:28:41
+ * @LastEditTime: 2020-04-29 10:36:57
  * @FilePath: /C++课程学习记录/实验报告/实验报告4/Main.cpp
  */
 
@@ -23,15 +23,15 @@ private:
     int month_;
     int day_;
     int days_of_month_[12];
-    void days_of_month(int year);
-    bool is_leap_year(int year);
+    void days_of_month(const int &year);
+    bool is_leap_year(const int &year);
 };
 
-bool CDate::is_leap_year(int year){
+bool CDate::is_leap_year(const int &year){
     return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
 }
 
-void CDate::days_of_month(int year){
+void CDate::days_of_month(const int &year){
     auto copy_month = [&](int *src, int *dis){
         for(int i = 0; i < 12; i++, src++, dis++) { *dis = *src; }
     };
