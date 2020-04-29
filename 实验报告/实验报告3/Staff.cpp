@@ -2,8 +2,8 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-04-24 10:03:17
- * @LastEditTime: 2020-04-25 21:40:11
- * @FilePath: /C++课程学习记录/lib/实验报告4/Staff.cpp
+ * @LastEditTime: 2020-04-29 09:08:25
+ * @FilePath: /C++课程学习记录/实验报告/实验报告3/Staff.cpp
  */
 
 #include "Staff.hpp"
@@ -51,8 +51,10 @@ std::ofstream &Staff::outToFile(std::ofstream &of) {
 void Staff::load(const std::string &filename, std::vector<Staff* > &vpStaff) {
   std::cout << "load: " << filename << std::endl;
   try{
+      // [来自]C++核心准则 2019年12月8日
+      // std::ifstream input{filename}; // 即使发生错误文件仍可关闭
       std::ifstream infile(filename, std::ios::in);
-      if(!infile) {throw FILE_ERROR_Exception();}
+      if(!infile) {throw FILE_ERROR_Exception();} // 如果在这里发生错误，文件无法关闭
       while(infile.peek() != EOF) { 
         vpStaff.push_back(new Staff);
         infile >> *vpStaff.back();

@@ -2,8 +2,8 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-04-24 09:42:15
- * @LastEditTime: 2020-04-27 11:29:43
- * @FilePath: /C++课程学习记录/实验报告/实验报告4/Main.cpp
+ * @LastEditTime: 2020-04-29 09:03:27
+ * @FilePath: /C++课程学习记录/实验报告/实验报告3/Main.cpp
  */
 
 /*
@@ -92,6 +92,14 @@ int main() {
   //   全部数据。如没有，就输出“无此人”。可以反复多次查询，如果输入查找的职工号为0，就结束查询。
   std::vector<Staff* > findStaff;
   staff_file.load(filename, findStaff);
+
+
+  // [来自]C++核心准则 2019年12月8日
+  // auto p = find(begin(v), end(v), val);  // better
+
+  // 可能是相对于for(auto &x : v){} for(const auto &x : v){} 好一些的方法
+  // for_each(v, [](int x) { /* do something with the value of x */ });
+  // for_each(par, v, [](int x) { /* do something with the value of x */ });
 
   auto find_staff = [=](const std::string &num){ 
     bool exist = false;
