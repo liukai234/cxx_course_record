@@ -2,7 +2,7 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-04-30 14:21:02
- * @LastEditTime: 2020-04-30 15:32:25
+ * @LastEditTime: 2020-05-04 10:16:37
  * @FilePath: /UNIX网络编程/TCP客户_服务器模型/echocli.c
  */
 
@@ -30,7 +30,7 @@ int main(void) {
     struct sockaddr_in servaddr;
     memset(&servaddr, 0, sizeof(servaddr));
     servaddr.sin_family = PF_INET;
-    servaddr.sin_port = htons(5188);
+    servaddr.sin_port = htons(5199);
 
     // 指定任意地址
     // servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -44,9 +44,9 @@ int main(void) {
     char sendbuf[1024] = {0};
     char recvbuf[1024] = {0};
     while(fgets(sendbuf, sizeof(sendbuf), stdin) != NULL){
-        write(sock, sendbuf, strlen(sendbuf));
+        write(sock, sendbuf, sizeof(sendbuf));
         read(sock, recvbuf, sizeof(recvbuf));
-        fputs(recvbuf, stdout);
+        printf("从服务器回射的信息: %s", recvbuf);
         memset(sendbuf, 0, sizeof(sendbuf));
         memset(recvbuf, 0, sizeof(recvbuf));
     }

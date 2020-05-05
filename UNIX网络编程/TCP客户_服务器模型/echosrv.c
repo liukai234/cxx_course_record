@@ -2,7 +2,7 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-04-30 14:39:28
- * @LastEditTime: 2020-04-30 15:28:31
+ * @LastEditTime: 2020-05-04 10:32:10
  * @FilePath: /UNIX网络编程/TCP客户_服务器模型/echosrv.c
  */
 
@@ -30,14 +30,29 @@ int main(void) {
     struct sockaddr_in servaddr;
     memset(&servaddr, 0, sizeof(servaddr));
     servaddr.sin_family = PF_INET;
-    servaddr.sin_port = htons(5188);
+
+    /* POSIX.1g specifies this type name for the `sa_family' member.  */
+    typedef unsigned short int sa_family_t;
+    servaddr.sin_port = htons(5199);
 
     // 指定任意地址
+    // unsigned int 为 long             htonl
+    // unsigned short int 为 short      htons
     servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
     // 显示指定地址
     // servaddr.sin_addr.s_addr = inet_addr("127.0.0.1");
     // inet_aton("127.0.0.1", &servaddr.sin_addr);
     
+    // 服务器端尽可能使用resueaddr选项
+    // 在绑定之前尽可能调用setsockopt来设置reuseaddr套接字选项
+    // 使用reuseaddr选项可以不必等待time_wait状态消失就可以重启服务器
+    // 查看端口占用状态 netstat -an | grep TIME_WATE
+    int on = 1;
+    if(setsockopt(listenfd, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on) < 0)) {
+        ERR_EXIT("setsockopt");
+    }
+    /* Give the socket FD the local address ADDR (which is LEN bytes long).  */
+    // extern int bind (int __fd, __CONST_SOCKADDR_ARG __addr, socklen_t __len)
     if(bind(listenfd, (struct sockaddr *)&servaddr, sizeof(servaddr)) < 0) {
         ERR_EXIT("bind");
     }
@@ -53,6 +68,7 @@ int main(void) {
     if((conn = accept(listenfd, (struct sockaddr *)&peeraddr, &peerlen)) < 0){
         ERR_EXIT("accept");
     }
+    printf("客户端ip=%s 客户端端口port=%d\n", inet_ntoa(peeraddr.sin_addr), ntohs(peeraddr.sin_port));
     char recvbuf[1024];
     while(1) {
         memset(recvbuf, 0, sizeof(recvbuf));

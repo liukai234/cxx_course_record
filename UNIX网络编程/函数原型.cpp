@@ -2,8 +2,8 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-04-30 14:36:58
- * @LastEditTime: 2020-04-30 15:52:41
- * @FilePath: /UNIX网络编程/知识点.cpp
+ * @LastEditTime: 2020-05-04 10:09:24
+ * @FilePath: /UNIX网络编程/函数原型.cpp
  */
 #include <netinet/in.h>
 
@@ -78,3 +78,8 @@ int listen(int sockfd, int backlog){}
 // addr 将返回对等方的套接字地址
 // addrlen 返回对等方的套接字地址长度
 int accept(int sockfd, struct sockaddr * addr, socklen_t *addrlen){}
+
+// 在服务器端conn的地址是在绑定时建立的 
+// 客户端的sock地址是在建立连接时自动选择的
+
+
