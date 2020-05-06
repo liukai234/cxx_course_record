@@ -2,8 +2,8 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-04-30 14:39:28
- * @LastEditTime: 2020-05-06 09:14:27
- * @FilePath: /p2p通信/echosrv.c
+ * @LastEditTime: 2020-05-06 09:38:42
+ * @FilePath: /p2p通信/p2psrv.c
  */
 
 #include <sys/socket.h>
@@ -29,10 +29,10 @@ int main(void) {
     }
     struct sockaddr_in servaddr;
     memset(&servaddr, 0, sizeof(servaddr));
-    servaddr.sin_family = PF_INET;
 
     /* POSIX.1g specifies this type name for the `sa_family' member.  */
-    typedef unsigned short int sa_family_t;
+    // typedef unsigned short int sa_family_t;
+    servaddr.sin_family = PF_INET;
     servaddr.sin_port = htons(5199);
 
     // 指定任意地址
@@ -72,7 +72,7 @@ int main(void) {
     if(pid == -1) { ERR_EXIT("pid_t"); }
     if(pid == 0) { 
         //子进程
-        char sendbuf[1024];
+        char sendbuf[1024] = {0};
         while(fgets(sendbuf, sizeof(sendbuf), stdin) != NULL) {
             // 通过conn套接字向客户端回射信息
             write(conn, sendbuf, strlen(sendbuf));

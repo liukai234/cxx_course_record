@@ -2,8 +2,8 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-04-30 14:21:02
- * @LastEditTime: 2020-05-06 09:15:50
- * @FilePath: /p2p通信/echocli.c
+ * @LastEditTime: 2020-05-06 09:30:47
+ * @FilePath: /p2p通信/p2pcli.c
  */
 
 #include <sys/socket.h>
@@ -41,15 +41,24 @@ int main(void) {
     if(connect(sock, (struct sockaddr *)&servaddr, sizeof(servaddr)) < 0){
         ERR_EXIT("connect");
     }
-    char sendbuf[1024] = {0};
-    char recvbuf[1024] = {0};
-    while(fgets(sendbuf, sizeof(sendbuf), stdin) != NULL){
-        write(sock, sendbuf, sizeof(sendbuf));
+
+    pid_t pid;
+    pid = fork();
+    // 父进程接受数据&&建立连接，子进程发送数据
+    if(pid == 0) { 
+        char sendbuf[1024];
+        memset(sendbuf, 0, sizeof(sendbuf));
+        while(fgets(sendbuf, sizeof(sendbuf), stdin) != NULL){
+            write(sock, sendbuf, sizeof(sendbuf));
+        }
+    }
+    else {
+        char recvbuf[1024] = {0};
         read(sock, recvbuf, sizeof(recvbuf));
         printf("来自服务器: %s", recvbuf);
-        memset(sendbuf, 0, sizeof(sendbuf));
         memset(recvbuf, 0, sizeof(recvbuf));
     }
+
     close(sock);
     return 0;
 }
