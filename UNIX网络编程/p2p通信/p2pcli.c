@@ -2,7 +2,7 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-04-30 14:21:02
- * @LastEditTime: 2020-05-06 09:30:47
+ * @LastEditTime: 2020-05-06 10:16:03
  * @FilePath: /p2p通信/p2pcli.c
  */
 
@@ -53,10 +53,14 @@ int main(void) {
         }
     }
     else {
-        char recvbuf[1024] = {0};
-        read(sock, recvbuf, sizeof(recvbuf));
-        printf("来自服务器: %s", recvbuf);
-        memset(recvbuf, 0, sizeof(recvbuf));
+        printf("建立连接\n");
+        // 父进程 读取状态
+        while(1) {
+            char recvbuf[1024];
+            memset(recvbuf, 0, sizeof(recvbuf));
+            read(sock, recvbuf, sizeof(recvbuf));
+            printf("来自服务器: %s", recvbuf);
+        }
     }
 
     close(sock);

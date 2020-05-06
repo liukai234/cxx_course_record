@@ -2,7 +2,7 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-04-30 14:39:28
- * @LastEditTime: 2020-05-06 09:38:42
+ * @LastEditTime: 2020-05-06 10:11:29
  * @FilePath: /p2p通信/p2psrv.c
  */
 
@@ -72,12 +72,13 @@ int main(void) {
     if(pid == -1) { ERR_EXIT("pid_t"); }
     if(pid == 0) { 
         //子进程
-        char sendbuf[1024] = {0};
+        char sendbuf[1024];
+        memset(sendbuf, 0, sizeof(sendbuf));
         while(fgets(sendbuf, sizeof(sendbuf), stdin) != NULL) {
             // 通过conn套接字向客户端回射信息
-            write(conn, sendbuf, strlen(sendbuf));
-            memset(sendbuf, 0, sizeof(sendbuf));
+            write(conn, sendbuf, sizeof(sendbuf));
         }
+        exit(EXIT_SUCCESS);
     }
     else {
         if((conn = accept(listenfd, (struct sockaddr *)&peeraddr, &peerlen)) < 0){
@@ -96,10 +97,10 @@ int main(void) {
                 break;
             }
             if(ret == -1) { ERR_EXIT("read"); }
-
-            fputs(recvbuf, stdout);
+            printf("来自客户端: %s", recvbuf);
         }
         close(conn);
+        exit(EXIT_SUCCESS);
     }
     return 0;
 }
