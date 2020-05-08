@@ -2,7 +2,7 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-05-06 16:29:49
- * @LastEditTime: 2020-05-07 16:24:39
+ * @LastEditTime: 2020-05-08 09:53:58
  * @FilePath: /实验报告6/Main.cpp
  */
 /* 创建简单的二维“捕食者-被捕食者”模拟程序。被捕食者是蚂蚁（ant），捕食者是狮蚁（doodlebug）。
