@@ -2,7 +2,7 @@
  * @Description: 有机生物类，它封装了通用于蚂蚁和狮蚁的基本数据
  * @LastEditors: liukai
  * @Date: 2020-05-07 08:29:43
- * @LastEditTime: 2020-05-08 09:39:38
+ * @LastEditTime: 2020-05-08 14:57:40
  * @FilePath: /实验报告6/Organism_copy.cpp
  */
 
