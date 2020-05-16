@@ -2,7 +2,7 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-05-16 17:18:18
- * @LastEditTime: 2020-05-16 22:28:59
+ * @LastEditTime: 2020-05-17 03:10:32
  * @FilePath: /实验报告6/README.md
 --> 
 
@@ -14,7 +14,14 @@
 ## 2015/5/17 
 1. 处理随机时重复的位置
 2. 使用静态常量统计种群个体总数
-
+3. 修复bug: `main:37: Map[x][y] != nullptr -> Map[x][y] == nullptr`
+4. 增加调试宏 `#ifdef DEBUG  #endif`
+5. 修复了Doodlebug连续3回和没有吃到ant时被kill
+6. 解决种群数量因为time_step不正确的bug
+7. 解决了Doodlebug不会kill的bug
+8. 使用引用
+## dosomething
+1. 使用move拷贝构造函数
 ## 2020/5/16 为了高内聚和高随机性这是重构的第四个版本
 ## dosomething：
 1. 为传参增加引用

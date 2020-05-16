@@ -2,7 +2,7 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-05-16 09:44:49
- * @LastEditTime: 2020-05-16 16:26:36
+ * @LastEditTime: 2020-05-17 03:02:51
  * @FilePath: /实验报告6/Organism.hpp
  */ 
 #pragma once
@@ -20,6 +20,8 @@ public:
     // virtual void set_y_pos(int) = 0;
 
     virtual char type() = 0;
+    virtual void kill_one() = 0;
+    virtual void add_one() = 0;
 };
 
 constexpr int DIRECTION[4][2] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
