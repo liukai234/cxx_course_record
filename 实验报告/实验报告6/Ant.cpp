@@ -2,7 +2,7 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-05-07 08:18:34
- * @LastEditTime: 2020-05-16 16:42:16
+ * @LastEditTime: 2020-05-16 17:27:48
  * @FilePath: /实验报告6/Ant.cpp
  */
 #pragma once
@@ -34,9 +34,9 @@ public:
                 }
             }
             printf("\n");
-            if(x != x_len - 1) {
-                printf("-----------\n");
-            }
+            // if(x != x_len - 1) {
+            //     printf("-----------\n");
+            // }
         }
     }
 
@@ -47,20 +47,16 @@ public:
         int new_x_pos = x_pos_ + DIRECTION[index][0];
         int new_y_pos = y_pos_ + DIRECTION[index][1];
         if(new_x_pos >= 0 && new_x_pos < x_len && new_y_pos >= 0 && new_y_pos < y_len && Map[new_x_pos][new_y_pos] == nullptr){
-            std::cout << "->move() success\n";
+            std::cout << "Ant->move() success\n";
             
             Ant *ant = new Ant(new_x_pos, new_y_pos);
             ant->time_step_ = time_step_;
             ant->moved_ = true;
             Map[x_pos_][y_pos_] = nullptr;
             Map[new_x_pos][new_y_pos] = ant;
-            
-            // 移动成功的话才进行输出
-            // print();
-        
         }
         else {
-            std::cout << "move() failed\n";
+            std::cout << "Ant->move() failed\n";
         }
     }
 
@@ -73,12 +69,11 @@ public:
             while(true) {
                 if(arr_i >= 4) {
                     break;
-                    std::cout << "所有方向都不能进行繁殖 breed() failed\n";
+                    std::cout << "Ant->breed() failed: 所有方向都不能进行繁殖 \n";
                 }
                 int index = random_num_creater(0, 4);
                 for(int i = 0; i < arr_i; i++) {
                     if (ALL_DIR[i] == index) { 
-                        std::cout << "产生的随机方向已经产生过;\n";    
                         continue; 
                     }
                 }
@@ -91,11 +86,11 @@ public:
                     // 繁殖成功的话才进行输出
                     Map[new_x_pos][new_y_pos] = new Ant(new_x_pos, new_y_pos);
                     time_step_ = 3;
-                    std::cout << "->breed繁殖成功: \n";
+                    std::cout << "Ant->breed() success\n";
                     print();
                     break;
                 } else {
-                    std::cout << "繁殖时发生越界或目标位置不为空\n";
+                    std::cout << "Ant->breed() success: 繁殖时发生越界或目标位置不为空\n";
                 }
             }
         }

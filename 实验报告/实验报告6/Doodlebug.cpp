@@ -2,7 +2,7 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-05-07 08:18:46
- * @LastEditTime: 2020-05-16 17:16:24
+ * @LastEditTime: 2020-05-16 18:23:11
  * @FilePath: /实验报告6/Doodlebug.cpp
  */
 
@@ -36,9 +36,9 @@ public:
                 }
             }
             printf("\n");
-            if(x != x_len - 1) {
-                printf("-----------\n");
-            }
+            // if(x != x_len - 1) {
+            //     printf("-----------\n");
+            // }
         }
     }
 
@@ -51,12 +51,11 @@ public:
         while(true) {
             if(arr_i >= 4) {
                 break;
-                std::cout << "doodlebug->周围无ant可吃\n";
+                std::cout << "Doodlebug->move() failed: eat时 周围无ant\n";
             }
             int index = random_num_creater(0, 4);
             for(int i = 0; i < arr_i; i++) {
                 if (ALL_DIR[i] == index) { 
-                    std::cout << "continue;\n";    
                     continue; 
                 }
             }
@@ -66,7 +65,7 @@ public:
             int new_y_pos = y_pos_ + DIRECTION[index][1];
             
             if(new_x_pos >= 0 && new_x_pos < x_len && new_y_pos >= 0 && new_y_pos < y_len && Map[new_x_pos][new_y_pos] != nullptr && Map[new_x_pos][new_y_pos]->type() == 'o'){
-                std::cout << "->eat() success\n";
+                std::cout << "Doodlebug->move() eat success\n";
                 Doodlebug *doodlebug = new Doodlebug(new_x_pos, new_y_pos);
                 doodlebug->time_step_ = time_step_;
                 doodlebug->starve_ = starve_;
@@ -75,7 +74,7 @@ public:
                 Map[new_x_pos][new_y_pos] = doodlebug;
                 break;
             } else {
-                std::cout << "doodlebug->欲吃的方向不可用\n";
+                std::cout << "Doodlebug->move(): eat时 越界或目标位置不可用\n";
             }
         }
 
@@ -84,7 +83,7 @@ public:
         int new_y_pos = y_pos_ + DIRECTION[index][1];
 
         if(new_x_pos >= 0 && new_x_pos < x_len && new_y_pos >= 0 && new_y_pos < y_len && Map[new_x_pos][new_y_pos] == nullptr){
-            std::cout << "->move() success\n";
+            std::cout << "Doodlebug->move() success\n";
             
             Doodlebug *doodlebug = new Doodlebug(new_x_pos, new_y_pos);
             doodlebug->time_step_ = time_step_;
@@ -97,7 +96,7 @@ public:
         
         }
         else {
-            std::cout << "move() failed\n";
+            std::cout << "Doodlebug->move() failed\n";
         }
     }
 
@@ -108,12 +107,11 @@ public:
             while(true) {
                 if(arr_i >= 4) {
                     break;
-                    std::cout << "所有方向都不能进行繁殖 breed() failed\n";
+                    std::cout << "Doodlebug->breed() failed: 所有方向都不能进行繁殖\n";
                 }
                 int index = random_num_creater(0, 4);
                 for(int i = 0; i < arr_i; i++) {
                     if (ALL_DIR[i] == index) { 
-                        std::cout << "continue;\n";    
                         continue; 
                     }
                 }
@@ -126,11 +124,11 @@ public:
                     // 繁殖成功的话才进行输出
                     Map[new_x_pos][new_y_pos] = new Doodlebug(new_x_pos, new_y_pos);
                     time_step_ = 3;
-                    std::cout << "->breed繁殖成功: \n";
+                    std::cout << "Doodlebug->breed()\n";
                     print();
                     break;
                 } else {
-                    std::cout << "繁殖时发生越界或目标位置不为空\n";
+                    std::cout << "Doodlebug->breed(): 繁殖时发生越界或目标位置不为空\n";
                 }
             }
         }
