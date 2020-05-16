@@ -2,7 +2,7 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-05-06 16:29:49
- * @LastEditTime: 2020-05-16 18:22:50
+ * @LastEditTime: 2020-05-16 22:26:36
  * @FilePath: /实验报告6/Main.cpp
  */
 
@@ -15,11 +15,14 @@
 
 void print();
 
-int random_num_creater(int min_value, int max_value) {
+int random_num_creater(const int &min_value, const int &max_value) {
     return rand() % (max_value - min_value) + min_value;
 }
 
 int main() {
+
+    // 初始化
+    srand((unsigned)time(NULL));
 
     for(int x = 0; x < x_len; x ++) {
         for(int y = 0; y < y_len; y++){
@@ -27,26 +30,28 @@ int main() {
         }
     }
 
-    srand((unsigned)time(NULL));
-    
-    for(int i = 0; i < 5; i++) {
-        // dosomething 处理随机时重复的位置
-        int x = random_num_creater(0, 20);
-        int y = random_num_creater(0, 20);
-        Map[x][y] = new Doodlebug(x, y);
-
+    // 5 doodlebugs
+    for(int i = 0; i < 1; i++) {
+        int x = random_num_creater(0, x_len);
+        int y = random_num_creater(0, y_len);
+        if(Map[x][y] != nullptr) { Map[x][y] = new Doodlebug(x, y); }
+        else { i --; }
     }
     
-    for(int i = 0; i < 100; i++) {
-        int x = random_num_creater(0, 20);
-        int y = random_num_creater(0, 20);
-        Map[x][y] = new Ant(x, y);
+    // 100 ants
+    for(int i = 0; i < 1; i++) {
+        int x = random_num_creater(0, x_len);
+        int y = random_num_creater(0, y_len);
+        if(Map[x][y] != nullptr) { Map[x][y] = new Ant(x, y); }
+        else { i --; }
     }
 
     unsigned int count = 1;
-    for(;count < 10; count ++){
+    for(;count < 20; count ++){
         int ant_nums = 0;
         int doodlebug_nums = 0;
+
+        // 
         for(int x = 0; x < x_len; x ++) {
             for(int y = 0; y < y_len; y++){
                 if(Map[x][y] != nullptr && Map[x][y]->type() == 'o') ant_nums++;
