@@ -2,10 +2,10 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-05-06 16:29:49
- * @LastEditTime: 2020-05-08 16:27:20
+ * @LastEditTime: 2020-05-16 17:20:44
  * @FilePath: /实验报告6/Main.cpp
  */
-/* 创建简单的二维“捕食者-被捕食者”模拟程序。被捕食者是蚂蚁（ant），捕食者是狮蚁（doodlebug）。
+/* 被捕食者是蚂蚁（ant），捕食者是狮蚁（doodlebug）。
 这些小生物生活在20×20的网格世界中。每个单元格每次只能由一个个体占据。网格是封闭的，所以个体不允许
 离开网格世界边缘。时间以time step为单位，个体在每个time step里面都要采取某项行动。具体规则如下：
 1． 建立蚂蚁的行为规则模型。
@@ -30,3 +30,103 @@
 time step。应该看到狮蚁和蚂蚁数量的循环变化——虽然一些随机性的混乱可能造成一种或两种生物的毁灭。
  */
 
+#include "Organism.hpp"
+#include "Organism.cpp"
+#include "Ant.cpp"
+#include "Doodlebug.cpp"
+
+#include <stdlib.h>
+
+void print();
+
+int main() {
+
+    for(int x = 0; x < x_len; x ++) {
+        for(int y = 0; y < y_len; y++){
+            Map[x][y] = nullptr;
+        }
+    }
+
+    srand((unsigned)time(NULL));
+    
+    Map[0][0] = new Ant(0, 0);
+    Map[2][2] = new Doodlebug(2, 2);
+    for(int count = 0; count < 15; count ++) {
+
+        // doodlebug优先于ant移动
+        for(int x = 0; x < x_len; x ++) {
+            for(int y = 0; y < y_len; y++){
+                // 移动时将所有移动的Ant moved值 设为true
+                if(Map[x][y] != nullptr && Map[x][y]->type() == 'x' && !Map[x][y]->ismoved()) {
+                    Map[x][y]->move();
+                }
+            }
+        } 
+        for(int x = 0; x < x_len; x ++) {
+            for(int y = 0; y < y_len; y++){
+                // 移动后将所有移动的Ant moved值 设回false
+                if(Map[x][y] != nullptr && Map[x][y]->type() == 'x' && Map[x][y]->ismoved()) {
+                    Map[x][y]->set_moved(false);
+                }
+            }
+        } 
+
+        for(int x = 0; x < x_len; x ++) {
+            for(int y = 0; y < y_len; y++){
+                if(Map[x][y] != nullptr && Map[x][y]->type() == 'x') {
+                    Map[x][y]->breed();
+                }
+            }
+        } 
+
+        for(int x = 0; x < x_len; x ++) {
+            for(int y = 0; y < y_len; y++){
+                // 移动时将所有移动的Ant moved值 设为true
+                if(Map[x][y] != nullptr && Map[x][y]->type() == 'o' && !Map[x][y]->ismoved()) {
+                    Map[x][y]->move();
+                }
+            }
+        } 
+        for(int x = 0; x < x_len; x ++) {
+            for(int y = 0; y < y_len; y++){
+                // 移动后将所有移动的Ant moved值 设回false
+                if(Map[x][y] != nullptr && Map[x][y]->type() == 'o' &&  Map[x][y]->ismoved()) {
+                    Map[x][y]->set_moved(false);
+                }
+            }
+        } 
+        std::cout << "move->\n"; print();
+
+        for(int x = 0; x < x_len; x ++) {
+            for(int y = 0; y < y_len; y++){
+                if(Map[x][y] != nullptr && Map[x][y]->type() == 'o') {
+                    Map[x][y]->breed();
+                }
+            }
+        } 
+        // std::cout << "breed->\n";
+        // print();
+    }
+    
+    return 0;
+}
+
+
+void print() {
+        for(int x = 0; x < x_len; x ++) {
+            for(int y = 0; y < y_len; y++){
+                if(Map[x][y] == nullptr) {
+                    printf("   ");
+                } else {
+                    printf(" %c ", Map[x][y]->type());
+                }
+                if(y != y_len - 1){
+                    printf("|");
+                }
+            }
+            printf("\n");
+            if(x != x_len - 1) {
+                printf("-----------\n");
+            }
+        }
+    }
