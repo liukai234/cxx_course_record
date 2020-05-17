@@ -2,7 +2,7 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-05-06 16:29:49
- * @LastEditTime: 2020-05-17 03:11:57
+ * @LastEditTime: 2020-05-17 11:32:50
  * @FilePath: /实验报告6/Main.cpp
  */
 
@@ -25,7 +25,7 @@ int main() {
     }
 
     // 5 doodlebugs
-    for(int i = 0; i < 1; i++) {
+    for(int i = 0; i < init_doodlebugs; i++) {
         int x = random_num_creater(0, x_len);
         int y = random_num_creater(0, y_len);
         if(Map[x][y] == nullptr) { Map[x][y] = new Doodlebug(x, y); Map[x][y]->add_one(); }
@@ -33,7 +33,7 @@ int main() {
     }
     
     // 100 ants
-    for(int i = 0; i < 1; i++) {
+    for(int i = 0; i < init_ants; i++) {
         int x = random_num_creater(0, x_len);
         int y = random_num_creater(0, y_len);
         if(Map[x][y] == nullptr) { Map[x][y] = new Ant(x, y); Map[x][y]->add_one(); }

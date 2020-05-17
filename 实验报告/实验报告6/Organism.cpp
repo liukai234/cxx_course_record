@@ -12,6 +12,8 @@
 
 constexpr int x_len = 3;
 constexpr int y_len = 3;
+constexpr int init_doodlebugs = 1;
+constexpr int init_ants = 1;
 
 Organism *Map[x_len][y_len];
 
