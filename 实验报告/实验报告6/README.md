@@ -2,7 +2,7 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-05-16 17:18:18
- * @LastEditTime: 2020-05-17 11:44:18
+ * @LastEditTime: 2020-05-17 20:26:57
  * @FilePath: /实验报告6/README.md
 --> 
 
@@ -19,14 +19,14 @@
 2. 如果是3 * 3的Map，在20次内基本会结束
 3. 如果是20 * 20的Map，循环次数太多比较危险
 
-## 2015/5/17
+## 2020/5/17
 1. format code
 
-## 2015/5/17
+## 2020/5/17
 1. 放弃使用Move赋值函数  配合使用dynamic_cast<> 时，dynamic_cast<> 会导致 segmentation fault
 2. 紧急：为 Organism.cpp 增加 #include <stdio.h>
 
-## 2015/5/17 
+## 2020/5/17 
 1. 处理随机时重复的位置
 2. 使用静态常量统计种群个体总数
 3. 修复bug: `main:37: Map[x][y] != nullptr -> Map[x][y] == nullptr`
