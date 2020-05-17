@@ -80,37 +80,14 @@ public:
         }
     }
 
-    virtual int time_step() {
-        return time_step_;
-    }
-
-    void get_pos() {
-        std::cout << "breed->(" << x_pos_  << ", "<< y_pos_ << ")" << "\n";
-    }
-
-    virtual void set_moved(bool moved){
-        moved_ = moved;
-    }
-
-    virtual bool ismoved(){
-        return moved_;
-    }
-
-    virtual char type(){
-        return 'o';
-    }
-
-    const static int get_sum() {
-        return ant_sum_;
-    }
-
-    virtual void kill_one() {
-        ant_sum_ --;
-    }
-
-    virtual void add_one() {
-        ant_sum_ ++;
-    }
+    virtual int time_step() { return time_step_; }
+    void get_pos() { std::cout << "breed->(" << x_pos_  << ", "<< y_pos_ << ")" << "\n"; }
+    virtual void set_moved(bool moved){ moved_ = moved; }
+    virtual bool ismoved(){ return moved_; }
+    virtual char type(){ return 'o'; }
+    const static int get_sum() { return ant_sum_; }
+    virtual void kill_one() { ant_sum_ --; }
+    virtual void add_one() { ant_sum_ ++; }
 
 private:
     // time_step_ 为 0 时表示生物将要 breed

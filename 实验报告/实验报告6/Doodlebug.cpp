@@ -2,7 +2,7 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-05-07 08:18:46
- * @LastEditTime: 2020-05-17 03:09:05
+ * @LastEditTime: 2020-05-17 11:12:21
  * @FilePath: /实验报告6/Doodlebug.cpp
  */
 
@@ -130,38 +130,15 @@ public:
         }
     }
 
-    virtual int time_step() {
-        return time_step_;
-    }
-
-    void get_pos() {
-        std::cout << "breed->(" << x_pos_  << ", "<< y_pos_ << ")" << "\n";
-    }
-
-    virtual void set_moved(bool moved){
-        moved_ = moved;
-    }
-
-    virtual bool ismoved(){
-        return moved_;
-    }
-
-    virtual char type(){
-        return 'x';
-    }
-
-    const static int get_sum() {
-        return doodlebug_sum_;
-    }
-
-    virtual void kill_one() {
-        doodlebug_sum_ --;
-    }
-
-    virtual void add_one() {
-        doodlebug_sum_ ++;
-    }
-
+    virtual int time_step() { return time_step_; }
+    void get_pos() { std::cout << "breed->(" << x_pos_  << ", "<< y_pos_ << ")" << "\n"; }
+    virtual void set_moved(bool moved){ moved_ = moved; }
+    virtual bool ismoved(){ return moved_; }
+    virtual char type(){ return 'x'; }
+    const static int get_sum() { return doodlebug_sum_; }
+    virtual void kill_one() { doodlebug_sum_ --; }
+    virtual void add_one() { doodlebug_sum_ ++; }
+    
     // Doodlebug &operator=(Doodlebug&& current_obj){}
     // dynamic_cast< * >
 
