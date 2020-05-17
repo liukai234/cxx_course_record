@@ -161,6 +161,10 @@ public:
     virtual void add_one() {
         doodlebug_sum_ ++;
     }
+
+    // Doodlebug &operator=(Doodlebug&& current_obj){}
+    // dynamic_cast< * >
+
 private:
     int time_step_ = 8;
     int x_pos_;

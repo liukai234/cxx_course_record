@@ -2,12 +2,13 @@
  * @Description: 
  * @LastEditors: liukai
  * @Date: 2020-05-16 09:53:41
- * @LastEditTime: 2020-05-17 03:06:41
+ * @LastEditTime: 2020-05-17 11:06:28
  * @FilePath: /实验报告6/Organism.cpp
  */ 
 #pragma once
 #include "Organism.hpp"
 #include <stdlib.h>
+#include <stdio.h>
 
 constexpr int x_len = 3;
 constexpr int y_len = 3;
