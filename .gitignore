@@ -1,3 +1,4 @@
+git
 .vscode
 *.exe
 *.out
@@ -5,3 +6,5 @@ test.cpp
 test
 build
 Main
+cmake-build-debug/
+.idea/
