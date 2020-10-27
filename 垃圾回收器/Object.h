@@ -5,6 +5,7 @@
 #ifndef GARBAGECOLLECTION_OBJECT_H
 #define GARBAGECOLLECTION_OBJECT_H
 #include "ManageAllocation.h"
+#include <string>
 #ifdef DEBUG
 #include "dbg.h"
 #endif
@@ -14,10 +15,18 @@ public:
     void operator delete(void *pointer) noexcept;
     Object& operator=(Object &obj);
     int refCount() const;
+    void setObjectName(std::string str) {
+        objectName_ = str;
+    }
+    std::string objectName() const;
+    
 //    ~Object();
 private:
 //    static ManageAllocation* manageAllocation;
     int refCount_ = 0;
+    std::string objectName_;
+protected:
+
 };
 
 #endif //GARBAGECOLLECTION_OBJECT_H

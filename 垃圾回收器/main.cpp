@@ -7,6 +7,7 @@
 #include <list>
 #include "ManageAllocation.h"
 #include "Object.h"
+#include <string.h>
 
 #ifdef DEBUG
 #include "dbg.h"
@@ -15,31 +16,38 @@
 
 class Add : public Object {
 public:
-    explicit Add(int a) : a_ {a} {}
+    explicit Add(int a, std::string name) : a_ {a} {
+        setObjectName(name);
+    }
     explicit Add() {}
     int a() const { return a_; }
-
+    
 private:
     int a_;
 };
 
 class B : public Add {
-
+public:
+    explicit B(int a, std::string &name) : a_ {a} {
+        setObjectName(name);
+    }
+private:
+    int a_;
 };
 
 int main() {
 
-    Add *add1 = new Add(5);
-    Add *add2 = new Add(2);
-    B *b = new B();
-    B *b2 = new B();
+    Add *add1 = new Add(5, "add1");
+    Add *add2 = new Add(2, "add2");
+    B *b = new B(5, "b");
+    B *b2 = new B(2, "b2");
 
     *b2 = *b;
     *add2 = *add1;
     ManageAllocation::getAllObjPointer();
 
-    b2->refCount();
-    add2->refCount();
+    b->refCount();
+    add1->refCount();
 
 #ifdef DEBUG
     dbg(add1->refCount());

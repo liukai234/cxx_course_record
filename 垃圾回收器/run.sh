@@ -1,7 +1,7 @@
 #!/bin/bash
 
 printf "Shell Script running...\n" && 
-
+clear &&
 g++ main.cpp ManageAllocation.cpp Object.cpp -o test -std=c++14 &&
 
 # 空格必须存在

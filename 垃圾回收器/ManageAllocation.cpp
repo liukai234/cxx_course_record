@@ -40,8 +40,7 @@ void ManageAllocation::operator delete(void *pointer) noexcept {
     ::operator delete(pointer);
 }
 
-ManageAllocation* ManageAllocation::getInstance()
-{
+ManageAllocation* ManageAllocation::getInstance() {
     if(manageAllocation == nullptr) {
         manageAllocation = new ManageAllocation;
     }
@@ -59,7 +58,7 @@ void ManageAllocation::getAllObjPointer() {
     for(auto iter = objectCount.rbegin(); iter != objectCount.rend(); ++ iter) {
         auto *objTemp = (Object*)*iter; // Object *
         int refCount = objTemp->refCount();
-        std::cout << refCount << std::endl;
+        std::cout << refCount << (objTemp->objectName()) << std::endl;
         if(0 == refCount) {
             std::cout << "Above has be deleted" << std::endl;
             delete objTemp;
