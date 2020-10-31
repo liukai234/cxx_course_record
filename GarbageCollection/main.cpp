@@ -5,7 +5,7 @@
 
 #include <iostream>
 #include <list>
-#include "ManageAllocation.h"
+#include "MemoryManager.h"
 #include "Object.h"
 #include <string.h>
 
@@ -28,7 +28,7 @@ private:
 
 class B : public Add {
 public:
-    explicit B(int a, std::string &name) : a_ {a} {
+    explicit B(int a, std::string name) : a_ {a} {
         setObjectName(name);
     }
 private:
@@ -44,7 +44,7 @@ int main() {
 
     *b2 = *b;
     *add2 = *add1;
-    ManageAllocation::getAllObjPointer();
+//    MemoryManager::getAllObjPointer();
 
     b->refCount();
     add1->refCount();

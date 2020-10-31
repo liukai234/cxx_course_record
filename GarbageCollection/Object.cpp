@@ -2,19 +2,23 @@
 // Created by lk234 on 2020/10/22 022.
 //
 
+// 直接先申请一块空间 或者 申请俩块一块申请，一块拷贝
+// Object C llvm   编译优化自动增加 delete
+//
+
 #include "Object.h"
 void * Object::operator new(size_t size) {
 #ifdef DEBUG
     dbg("operator new called");
 #endif
-    return ManageAllocation::getInstance()->operator new(size); // 调用ManageAllocate::operator new
+    return MemoryManager::getInstance()->operator new(size); // 调用ManageAllocate::operator new
 }
 
 void Object::operator delete(void *pointer) noexcept {
 #ifdef DEBUG
     dbg("operator delete called");
 #endif
-    ManageAllocation::getInstance()->operator delete(pointer);
+    MemoryManager::getInstance()->operator delete(pointer);
 }
 
 // TODO: [PROBLEM] deep copy 深拷贝
@@ -36,3 +40,6 @@ int Object::refCount() const {
     return refCount_;
 }
 
+std::string Object::objectName() const{
+    return objectName_;
+}

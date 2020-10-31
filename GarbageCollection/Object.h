@@ -4,7 +4,7 @@
 #include <iostream>
 #ifndef GARBAGECOLLECTION_OBJECT_H
 #define GARBAGECOLLECTION_OBJECT_H
-#include "ManageAllocation.h"
+#include "MemoryManager.h"
 #include <string>
 #ifdef DEBUG
 #include "dbg.h"
@@ -22,7 +22,7 @@ public:
     
 //    ~Object();
 private:
-//    static ManageAllocation* manageAllocation;
+//    static MemoryManager* memoryManager;
     int refCount_ = 0;
     std::string objectName_;
 protected:
