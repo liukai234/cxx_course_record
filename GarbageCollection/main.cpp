@@ -38,6 +38,7 @@ private:
 int main() {
 
     Add *add1 = new Add(5, "add1");
+    delete(add1);
     Add *add2 = new Add(2, "add2");
     B *b = new B(5, "b");
     B *b2 = new B(2, "b2");
