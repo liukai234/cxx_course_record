@@ -38,3 +38,15 @@ int main() {
     }
     return 0;
 }
+
+/*
+int main() {
+    string s("12");
+    char b;
+    try {
+        b = s.at(3);
+    }catch (exception e) {
+        cout << e.what() << endl;
+    }
+}
+*/
