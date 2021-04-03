@@ -53,4 +53,13 @@ int main() {
     // 在这里编译器并不实际调用f函数，而是分析f函数的返回值作为sum的定义类型。
 
     return 0;
+    /* 
+     * 更简洁的例子
+     * auto 的类型是根据等于号右边得到的
+     * decltype不需要初值
+       int a = 5;
+      
+       1. decltype(a) c;
+       2. using type = decltype(a); type d = 5;
+     */
 }
