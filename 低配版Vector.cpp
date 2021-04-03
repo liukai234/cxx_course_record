@@ -1,35 +1,31 @@
-/*
- * @Author: your name
- * @Date: 2020-02-23 10:38:13
- * @LastEditTime: 2020-02-23 10:48:44
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: /wanmen2/Vector.cpp
- */
 #include <iostream>
 using namespace std;
 
 class Vector {
 private:
     size_t sz;
-    double* elem;
-
-    Vector(initializer_list<double> lst)
-        :elem {new double[lst.size()]}, 
-        sz(lst.size())
-    {
+    int* elem;
+public:
+    Vector(initializer_list<int> lst):elem {new int[lst.size()]}, sz(lst.size()) {
         copy(lst.begin(), lst.end(), elem);
     }
 
-    
+    void printALL() {
+        for(int i = 0; i < sz; i ++) { cout << elem[i] << " "; }
+        cout << endl;
+    }
 
     ~Vector(){
-        cout << "~exec" << endl; 
+        delete [] elem;
     }
 
 };
 
-int main(int args, char *argv[]){
-
-
+int main(int argc, char *argv[]){
+    /*
+     * () 认为是构造函数
+     * {} 认为是列表初始化
+     */
+    Vector v{1, 2, 3};
+    v.printALL();
 }
