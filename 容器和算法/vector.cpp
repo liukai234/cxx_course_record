@@ -1,39 +1,23 @@
-/*
- * @Author: your name
- * @Date: 2020-03-03 20:36:44
- * @LastEditTime: 2020-03-11 15:12:28
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: /wanmen3/.vscode/vector.cpp
- */
-
 #include <iostream>
 #include <vector>
 
-using std::cout;
-using std::endl;
-using std::vector;
+using namespace std;
 
 int main() {
-    vector<int, int> vecInt;
-
-    vecInt.push_back(42);
-    vecInt.push_back(42);
-    vecInt.push_back(42);
-
     /* cout << "size: " << vecInt.size() << endl;
-    cout << "capacity: " << vecInt.capacity() << endl;
+     *cout << "capacity: " << vecInt.capacity() << endl;
+     */
 
-    vector<int>::iterator iter = vecInt.begin();
-
-    while(iter != vecInt.end()) {
-        cout << "value of vecInt: " << *iter << endl;
-        ++ iter;
-    } */
-
-    for(auto &x : vecInt){
-        cout << x << endl;
-    }
+    /* {}列表初始化 */         vector<int> v1{0, 1};
+    /* ()构造vector对象 */    vector<int> v2(10, 1);
     
+    /*
+     * vector<int>::iterator it           it可读写 vector<int> 元素
+     * vector<int>::const_iterator it     it可读不可写 vector<int> 元素
+     */
+
+    swap(v1[0], v1[1]);
+    for(/* int& */ auto &i : v1) {cout << ++i /* 不加引用不能将改变应用到容器中 */ << " ";}
+
     return 0;
 }
