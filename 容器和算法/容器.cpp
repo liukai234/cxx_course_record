@@ -6,9 +6,10 @@ using namespace std;
  * 容器：
  * vector：可变大小数组
  * deque：双端队列
- * list：双向列表
- * forward_list：固定大小数组
- * array、string：与vector类似的容器，但专门用来保存字符
+ * list：双向链表
+ * forward_list：单向链表
+ * array：固定大小数组
+ * string：与vector类似的容器，但专门用来保存字符
  */
 class A {
 public:
@@ -33,9 +34,6 @@ int main() {
     while(ss >> append) {
         iter = c.insert(iter, append);
     }
-    for(auto &i : c) { cout << i << " "; }
-    cout << endl;
-
     for(auto &i : c) { cout << i << " "; }
     cout << endl;
 
