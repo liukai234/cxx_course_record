@@ -10,6 +10,8 @@ using namespace std;
  * accumulate() // 需引用头文件 numeric (数字)
  * equal
  * 2. 写容器元素的算法
+ * fill
+ * fill_n
  * copy
  * replace 
  * replace_copy
@@ -56,6 +58,7 @@ int main() {
     // 对v3进行排序 并清除v3中的重复元素 unique返回一个指向不重复值范围末尾的迭代器
     sort(v3.begin(), v3.end());
     auto end_unique = unique(v3.begin(), v3.end()); // 求unique后，被安排在末尾的重复元素的值是没有意义的
+    // [!!] 单独使用erase调整大小，算法绝对不会改变容器的大小
     v3.erase(end_unique, v3.end());
     for(auto x : v3) { cout << x << " "; } cout << endl;
 
