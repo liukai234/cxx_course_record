@@ -31,3 +31,7 @@ int main() {
     
     return 0;
 }
+
+// bind 参数绑定
+// 插入迭代器
+// iostream 迭代器
