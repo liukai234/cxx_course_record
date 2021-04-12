@@ -57,7 +57,7 @@ int main() {
      * 更简洁的例子
      * auto 的类型是根据等于号右边得到的
      * decltype不需要初值
-       int a = 5;
+       auto a = 5;
       
        1. decltype(a) c;
        2. using type = decltype(a); type d = 5;
