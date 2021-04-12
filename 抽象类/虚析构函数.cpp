@@ -15,7 +15,7 @@ class Base {
    public:
     Base() { cout << "Constructor: Base" << endl; }
     virtual ~Base() { cout << "Destructor : Base" << endl; }
-    //这里的虚析构函数使得派生类对象释放时， 先寻找基类析构函数， 发现基类析构函数是虚拟的，后去寻找派生类的析构函数
+    // 这里的虚析构函数使得派生类对象释放时， 先寻找基类析构函数， 发现基类析构函数是虚拟的，后去寻找派生类的析构函数
 };
 
 class Derived : public Base {
