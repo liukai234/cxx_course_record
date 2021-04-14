@@ -19,10 +19,11 @@ public:
     // 覆盖重载的函数：利用using可以把该函数的所有重载实例添加到派生类的作用域中
     using Base::add;
     int add(int a) { return a; }
-
+    
+    // 覆盖（override）只发生在虚函数上，否则称为隐藏（如果不是虚函数，在子作用域内的同名都称为隐藏）
     // 先进行名字查找，所以先判断隐藏
-    // int add(int a) { return a; } // 名字隐藏
-    // int add() { return 0; } // 名字隐藏
+    // int add(int a) override { return a; } // 覆盖虚函数 
+    // int add() { return 0; } // 名字隐藏 // 隐藏了基类add的虚函数，他们只在Derived的作用域内隐藏
 };
 
 int main() {
