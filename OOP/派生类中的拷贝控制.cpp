@@ -12,7 +12,8 @@ public:
     Base(const Base &b) { cout << "Base copy\n"; }
     Base& operator=(const Base &b) { cout << "Base equal\n"; return *this; }
     Base(const Base &&b) noexcept { cout << "Base move copy\n"; }
-    Base& operator=(const Base &&b) noexcept { cout << "Base move equal\n"; return *this; }
+    // 移动赋值后等号右侧对象应进入可析构状态，指针都应置为nullptr，所以这里不可以是const的
+    Base& operator=(Base &&b) noexcept { cout << "Base move equal\n"; return *this; }
 };
 
 class Derived : Base {
