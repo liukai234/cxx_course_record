@@ -114,7 +114,7 @@ int main(int argc, char *argv[]){
     // A b; b = a;
     
     // 移动拷贝构造函数
-    // A b(move(a)); 或 A b = move(a);
+    // A b(move(a)); 或 A b = move(a); // 将左值a显示的转换为右值std::move(a)
     
     // 移动赋值函数
     // A b; b = move(a);
