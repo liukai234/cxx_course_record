@@ -56,6 +56,11 @@ T Blob<T>::ret() {
 }
 // 模板类型别名
 template<typename T> using TP = pair<int, T>;
+
+// 以上这种类型别名有别与以下这种
+// using baseInt = Base<int>;
+// std::cout << baseInt::b_;
+
 int main() {
     // 编译器用推断出的模板参数来实例化一个特定版本的函数
     cout << compare(0, 1) << endl;
