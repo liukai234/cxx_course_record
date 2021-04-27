@@ -5,6 +5,15 @@
 #include <memory>
 using namespace std;
 
+/*
+ * 由于map和set（以及对应的无序类型）包含不重复的关键字，因此插入一个已存在的元素对容器没有任何影响
+ * vector<int> ivec{2,4,6,8,2,4,6,8};
+ * set<int> set2;
+ * set2.insert(ivec.cbegin(), ivec.cend()}; // set2.size()=4
+ * set2.insert({1,3,5,7,1,3,5,7}) // set2.size=8
+ * 但multimap和multiset可以有多个相同的关键字
+ */
+
 class Base {
 public:
     Base(string name):name_(name){}
