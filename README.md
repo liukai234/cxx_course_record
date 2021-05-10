@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2020-03-14 12:02:08
- * @LastEditTime: 2020-04-27 09:44:34
- * @LastEditors: liukai
- * @Description: In User Settings Edit
- * @FilePath: /C++课程学习记录/README.md
- -->
 # C++课程学习记录
 ## 2020/3/14
 🔨 build  
