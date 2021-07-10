@@ -3,7 +3,7 @@
 
 int main() {
     // int &i = 2; // error
-    const int &b = 10 + 6; // 例外1
+    const int &b = 10 + 6; // 例外1（常量表达式）
     const int &c = b;
 
     int a = 2;
