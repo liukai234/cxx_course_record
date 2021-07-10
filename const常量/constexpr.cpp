@@ -1,14 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2020-04-07 08:33:46
- * @LastEditTime: 2020-04-07 08:34:58
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: /C++课程学习记录/constexpr.cpp
- */
-
-
-
 #include <iostream>
 #include <array>
 using namespace std;
@@ -28,13 +17,21 @@ constexpr int foo(int i)
     return i+10;
 }
 
-int main()
-{
-    int i = 10;
-    std::array<int, foo(2)> arr; // OK
+// 必须定义在方法体外
+int a = 2;
+// or int a = 2;
+// or const int a = 2;
+const /* constexpr: constant expression */ int d = 2;
+const int *c = &a; // const int *c = &a 底层const
+constexpr int *cc = &a; // int * const cc = &a 置为顶层const
 
-    foo(i); // Call is Ok
+int main() {
+    // constexpr 把他所定义的对象置为顶层 const
+    // 对 top-level const 取地址后结果为 low-level const
+    // const int a to const int *a
 
-    // std::array<int, foo(i)> arr1; // error: the value of ‘i’ is not usable in a constant expression
-
+    constexpr const int *b = &a;
+    // constexpr const int *c = b;
+    const int* i = cc;
+    const int &e = d; // 引用的类型必须与引用的对象类型一致（非常量转换为常量的原则仍适用）
 }
