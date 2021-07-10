@@ -5,7 +5,7 @@ int main() {
     // 顶层const可以表示任意对象是常量：算术类型、类、指针等，底层const只与指针和引用等复合类型的基本类型部分有关
     // 对象的拷贝操作中，顶层const不受影响，但底层const的限制不能忽视
     // 一般来说，在底层const中，非常量可以转换为常量，反之则不行
-    
+    // 指针是对象而引用不是
     const char a = 'a'; // top-level const
     const char &aa = a; // low-level const bind to not-low-level const
     
